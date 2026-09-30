@@ -130,9 +130,9 @@ export default function Home() {
           </p>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { label: "Floor Coatings", href: "/residential/floor-coatings/garage", desc: "Epoxy, flake, metallic & more" },
-              { label: "Painting & Staining", href: "/residential/painting/exterior-house-painting", desc: "Interior, exterior & log homes" },
-              { label: "Surface Prep", href: "/residential/surface-prep/sandblasting", desc: "Sandblasting & concrete repair" },
+              { label: "Floor Coatings", href: "/residential/floor-coatings", desc: "Epoxy, flake, metallic & more" },
+              { label: "Painting & Staining", href: "/residential/painting", desc: "Interior, exterior & log homes" },
+              { label: "Surface Prep", href: "/residential/surface-prep", desc: "Sandblasting & concrete repair" },
               { label: "Murals", href: "/commercial/murals", desc: "Custom art for any space" },
             ].map((s) => (
               <Link

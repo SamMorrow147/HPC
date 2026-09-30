@@ -5,7 +5,7 @@ import { useState, useRef } from "react";
 import { mainNav } from "@/data/nav";
 
 function DesktopMegaMenu({ item, open, onEnter, onLeave }) {
-  const hasMenu = !!item.groups;
+  const hasMenu = !!item.children?.length;
   return (
     <div className="relative" onMouseEnter={onEnter} onMouseLeave={onLeave}>
       <Link
@@ -27,30 +27,19 @@ function DesktopMegaMenu({ item, open, onEnter, onLeave }) {
       </Link>
 
       {hasMenu && open && (
-        <div className="absolute left-1/2 top-full z-40 w-[min(90vw,780px)] -translate-x-1/2 rounded-b-lg border border-t-4 border-brand-line border-t-brand-green bg-white p-6 shadow-xl">
-          <div className="grid grid-cols-2 gap-x-8 gap-y-5 sm:grid-cols-4">
-            {item.groups.map((group, gi) => (
-              <div key={gi}>
-                {group.label && (
-                  <div className="mb-2 text-[11px] font-bold uppercase tracking-wider text-brand-muted">
-                    {group.label}
-                  </div>
-                )}
-                <ul className="space-y-1.5">
-                  {group.links.map((link) => (
-                    <li key={link.href}>
-                      <Link
-                        href={link.href}
-                        className="text-sm text-brand-ink hover:text-brand-green hover:underline"
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+        <div className="absolute left-0 top-full z-40 w-64 rounded-b-lg border border-t-4 border-brand-line border-t-brand-green bg-white py-2 shadow-xl">
+          <ul>
+            {item.children.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="block px-5 py-2.5 text-sm font-medium text-brand-ink hover:bg-brand-green-soft hover:text-brand-green-dark"
+                >
+                  {link.label}
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       )}
     </div>
@@ -59,6 +48,7 @@ function DesktopMegaMenu({ item, open, onEnter, onLeave }) {
 
 function MobileAccordionItem({ item }) {
   const [open, setOpen] = useState(false);
+  const hasMenu = !!item.children?.length;
   return (
     <div className="border-b border-brand-line">
       <button
@@ -68,7 +58,7 @@ function MobileAccordionItem({ item }) {
         <Link href={item.href} onClick={(e) => e.stopPropagation()}>
           {item.label}
         </Link>
-        {item.groups && (
+        {hasMenu && (
           <svg
             className={`h-4 w-4 shrink-0 transition-transform ${open ? "rotate-180" : ""}`}
             viewBox="0 0 12 12"
@@ -82,27 +72,16 @@ function MobileAccordionItem({ item }) {
           </svg>
         )}
       </button>
-      {item.groups && open && (
-        <div className="space-y-4 pb-4 pl-3">
-          {item.groups.map((group, gi) => (
-            <div key={gi}>
-              {group.label && (
-                <div className="mb-1 text-[11px] font-bold uppercase tracking-wider text-brand-muted">
-                  {group.label}
-                </div>
-              )}
-              <ul className="space-y-2">
-                {group.links.map((link) => (
-                  <li key={link.href}>
-                    <Link href={link.href} className="text-sm text-brand-ink">
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+      {hasMenu && open && (
+        <ul className="space-y-2 pb-4 pl-3">
+          {item.children.map((link) => (
+            <li key={link.href}>
+              <Link href={link.href} className="text-sm text-brand-ink">
+                {link.label}
+              </Link>
+            </li>
           ))}
-        </div>
+        </ul>
       )}
     </div>
   );
