@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { footerNav } from "@/data/nav";
 
@@ -7,9 +8,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-14">
         <div className="grid grid-cols-2 gap-10 md:grid-cols-5">
           <div className="col-span-2">
-            <div className="text-lg font-extrabold">
-              HPC<span className="text-brand-green"> High Performance Coatings</span>
-            </div>
+            <Image src="/logos/hpc-logo.png" alt="High Performance Coatings" width={160} height={96} className="h-20 w-auto" />
             <p className="mt-3 max-w-xs text-sm text-white/60">
               Minnesota&apos;s choice for residential and commercial coatings &mdash;
               floor coatings, painting &amp; staining, and murals since 1998.
