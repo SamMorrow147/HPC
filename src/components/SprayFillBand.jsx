@@ -49,11 +49,21 @@ export function SprayFillBand({ color = BRAND_GREEN, className = "", feather = 0
       ctx.fillStyle = color;
     };
 
+    // Finish the solid underneath WITHOUT clearing: the overspray speckles
+    // above the stripe (feather zone) are part of the finished look, and
+    // wiping them is what made the stripe appear to shrink at the end.
     const drawFinal = () => {
+      ctx.fillStyle = color;
+      ctx.fillRect(0, feather, W, H - feather);
+    };
+
+    // Fully painted state without animating (reduced motion / resize).
+    const drawComplete = () => {
       ctx.clearRect(0, 0, W, H);
       ctx.fillStyle = color;
-      ctx.globalAlpha = 1;
-      ctx.fillRect(0, feather, W, H - feather);
+      spray = makeSpray(W, H, { feather });
+      paintDots(ctx, spray, 0, spray.count);
+      drawFinal();
     };
 
     const frame = (now) => {
@@ -77,7 +87,7 @@ export function SprayFillBand({ color = BRAND_GREEN, className = "", feather = 0
       if (raf || done) return;
       sizeCanvas();
       if (reduceMotion) {
-        drawFinal();
+        drawComplete();
         done = true;
         return;
       }
@@ -105,13 +115,13 @@ export function SprayFillBand({ color = BRAND_GREEN, className = "", feather = 0
       if (wrap.clientWidth === W) return;
       if (done) {
         sizeCanvas();
-        drawFinal();
+        drawComplete();
       } else if (raf) {
         // mid-spray: rebuild at the new size and start over
         sizeCanvas();
         spray = makeSpray(W, H, { feather });
         drawnTo = 0;
-          startT = 0;
+        startT = 0;
       }
     };
     window.addEventListener("resize", onResize);

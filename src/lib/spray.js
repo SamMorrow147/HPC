@@ -28,7 +28,7 @@ export function makeSpray(W, H, { feather = 0, direction = "rtl" } = {}) {
   // dots land all along the nozzle's travel, so scale the count by the
   // travel/box ratio to keep the density inside the box at `overlap`
   const total = Math.round(((W * solidH) / meanArea) * overlap * (span / W));
-  const nFeather = Math.round(W * feather * 0.35);
+  const nFeather = Math.round(W * feather * 0.25);
   const n = total + nFeather;
 
   const x = new Float32Array(n);
@@ -53,9 +53,10 @@ export function makeSpray(W, H, { feather = 0, direction = "rtl" } = {}) {
     const overspray = Math.random() < 0.05;
     const px = nozzle + gauss() * (overspray ? 120 : 28);
     let py;
-    if (feather > 0 && Math.random() < nFeather / n) {
+    const isFeather = feather > 0 && Math.random() < nFeather / n;
+    if (isFeather) {
       // loose overspray above the solid region: sparse, fading upward
-      py = feather - Math.abs(gauss()) * feather * 1.1;
+      py = feather - Math.abs(gauss()) * feather * 0.7;
     } else {
       // centers may sit a few px outside the box so edge pixels get the
       // same coverage as the middle (the canvas clips them)
@@ -65,7 +66,8 @@ export function makeSpray(W, H, { feather = 0, direction = "rtl" } = {}) {
     if (px < -4 || px > W + 4 || py < -4 || py > H + 4) continue;
     x[c] = px;
     y[c] = py;
-    r[c] = dotRadius();
+    // overspray is fine mist, not the big drops that build the solid fill
+    r[c] = isFeather ? 0.4 + Math.random() * 0.7 : dotRadius();
     t[c] = u;
     c++;
   }
