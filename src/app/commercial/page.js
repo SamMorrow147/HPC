@@ -20,7 +20,7 @@ const CATEGORIES = [
     label: "Surface Prep & Specialty",
     href: "/commercial/surface-prep",
     desc: "Sandblasting and LP / fuel / water tank coatings.",
-    image: "/gallery/murals/marthaler-2.jpg",
+    image: "/gallery/site/commercail-coatings-1.jpg",
   },
   {
     label: "Cleaning Services",
@@ -32,7 +32,7 @@ const CATEGORIES = [
     label: "Murals",
     href: "/commercial/murals",
     desc: "Custom mural work for businesses, schools & public spaces.",
-    image: "/gallery/murals/crossroads-0.jpg",
+    image: "/gallery/murals/byllesby-0.jpg",
   },
 ];
 

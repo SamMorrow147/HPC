@@ -115,35 +115,10 @@ def add_project(id_, title, audience, serviceType, spaceType, finish, blurb, sou
 # ---------------------------------------------------------------------------
 MS = os.path.join(SITEMAP, "murals-source")
 
-add_project("mural-fargo-ang", "Fargo Air National Guard Hangar Mural", "Commercial", "Murals", "Exterior", None,
-    'Large-scale exterior lettering and branding for "The Happy Hooligans" on a North Dakota Air National Guard hangar.',
-    "murals-source/fargo-air-national-guard",
-    [("murals", os.path.join(MS, "fargo-air-national-guard", f"img-{n}.jpg"), f"fargo-{i}.jpg")
-     for i, n in enumerate(["000", "003", "004", "005", "006"])])
-
-add_project("mural-marthaler-farms", "Marthaler Farms Tank Mural", "Commercial", "Murals", "Manufacturing Plant", None,
-    "Custom logo and lettering painted onto a propane tank, matched to the client's truck livery fonts.",
-    "murals-source/marthaler-farms-tank",
-    [("murals", os.path.join(MS, "marthaler-farms-tank", f"img-{n}.jpg"), f"marthaler-{i}.jpg")
-     for i, n in enumerate(["007", "008", "009", "010", "011", "012"])])
-
-add_project("mural-schools", "School Mascot & Gym Murals", "Commercial", "Murals", "School", None,
-    "Mascot and team-name murals painted directly on gymnasium and hallway walls.",
-    "murals-source/school-murals",
-    [("murals", os.path.join(MS, "school-murals", f"img-{n}.jpg"), f"school-{i}.jpg")
-     for i, n in enumerate(["013", "014", "015"])])
-
-add_project("mural-crossroads-church", 'Crossroads Church "Launch Pad" Kids Room', "Commercial", "Murals", "School", None,
-    "A full space-themed mural wrapping every wall and ceiling of a children's ministry room -- planets, nebulae, and a spacecraft interior.",
-    "murals-source/crossroads-church-launch-pad",
-    [("murals", os.path.join(MS, "crossroads-church-launch-pad", f"img-{n}.jpg"), f"crossroads-{i}.jpg")
-     for i, n in enumerate(["016", "017", "018", "019", "020", "021", "022", "023"])])
-
-add_project("mural-various-business", "Restaurant & Retail Murals", "Commercial", "Murals", "Restaurant/Hospitality", None,
-    "Character art, custom lettering, faux-stone finishes, and even a blacklight-reactive mural for local restaurants and retail spaces.",
-    "murals-source/various-murals",
-    [("murals", os.path.join(MS, "various-murals", f"img-{n}{ext}"), f"various-{i}.jpg")
-     for i, (n, ext) in enumerate([("024",".jpg"),("025",".jpg"),("026",".png"),("027",".jpg"),("028",".jpg"),("029",".jpg"),("030",".jpg"),("031",".jpg"),("032",".jpg"),("033",".jpg")])])
+# NOTE: the Mural Division portfolio PDF projects (Fargo ANG, Marthaler Farms,
+# school murals, Crossroads Church, restaurant/retail) are intentionally left
+# out of the site for now. Only the Byllesby case study (Clubhaus project
+# page) is used. Source images stay in HPC Sitemap/murals-source/.
 
 add_project("mural-byllesby", "Lake Byllesby Pavilion Ceiling Mural", "Commercial", "Murals", "Community/Park Pavilion", None,
     'A 30-foot-high ceiling mural tracing local watershed lines in diluted wood stain, developed with Locus Architecture using plotter-cut stencils. "Look deep into nature, and then you will understand everything better." -- Albert Einstein',

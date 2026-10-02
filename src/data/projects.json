@@ -1,213 +1,5 @@
 [
   {
-    "id": "mural-fargo-ang",
-    "title": "Fargo Air National Guard Hangar Mural",
-    "audience": "Commercial",
-    "serviceType": [
-      "Murals"
-    ],
-    "spaceType": [
-      "Exterior"
-    ],
-    "finish": [],
-    "blurb": "Large-scale exterior lettering and branding for \"The Happy Hooligans\" on a North Dakota Air National Guard hangar.",
-    "source": "murals-source/fargo-air-national-guard",
-    "images": [
-      {
-        "file": "/gallery/murals/fargo-0.jpg",
-        "alt": "Fargo Air National Guard Hangar Mural"
-      },
-      {
-        "file": "/gallery/murals/fargo-1.jpg",
-        "alt": "Fargo Air National Guard Hangar Mural"
-      },
-      {
-        "file": "/gallery/murals/fargo-2.jpg",
-        "alt": "Fargo Air National Guard Hangar Mural"
-      },
-      {
-        "file": "/gallery/murals/fargo-3.jpg",
-        "alt": "Fargo Air National Guard Hangar Mural"
-      },
-      {
-        "file": "/gallery/murals/fargo-4.jpg",
-        "alt": "Fargo Air National Guard Hangar Mural"
-      }
-    ]
-  },
-  {
-    "id": "mural-marthaler-farms",
-    "title": "Marthaler Farms Tank Mural",
-    "audience": "Commercial",
-    "serviceType": [
-      "Murals"
-    ],
-    "spaceType": [
-      "Manufacturing Plant"
-    ],
-    "finish": [],
-    "blurb": "Custom logo and lettering painted onto a propane tank, matched to the client's truck livery fonts.",
-    "source": "murals-source/marthaler-farms-tank",
-    "images": [
-      {
-        "file": "/gallery/murals/marthaler-0.jpg",
-        "alt": "Marthaler Farms Tank Mural"
-      },
-      {
-        "file": "/gallery/murals/marthaler-1.jpg",
-        "alt": "Marthaler Farms Tank Mural"
-      },
-      {
-        "file": "/gallery/murals/marthaler-2.jpg",
-        "alt": "Marthaler Farms Tank Mural"
-      },
-      {
-        "file": "/gallery/murals/marthaler-3.jpg",
-        "alt": "Marthaler Farms Tank Mural"
-      },
-      {
-        "file": "/gallery/murals/marthaler-4.jpg",
-        "alt": "Marthaler Farms Tank Mural"
-      },
-      {
-        "file": "/gallery/murals/marthaler-5.jpg",
-        "alt": "Marthaler Farms Tank Mural"
-      }
-    ]
-  },
-  {
-    "id": "mural-schools",
-    "title": "School Mascot & Gym Murals",
-    "audience": "Commercial",
-    "serviceType": [
-      "Murals"
-    ],
-    "spaceType": [
-      "School"
-    ],
-    "finish": [],
-    "blurb": "Mascot and team-name murals painted directly on gymnasium and hallway walls.",
-    "source": "murals-source/school-murals",
-    "images": [
-      {
-        "file": "/gallery/murals/school-0.jpg",
-        "alt": "School Mascot & Gym Murals"
-      },
-      {
-        "file": "/gallery/murals/school-1.jpg",
-        "alt": "School Mascot & Gym Murals"
-      },
-      {
-        "file": "/gallery/murals/school-2.jpg",
-        "alt": "School Mascot & Gym Murals"
-      }
-    ]
-  },
-  {
-    "id": "mural-crossroads-church",
-    "title": "Crossroads Church \"Launch Pad\" Kids Room",
-    "audience": "Commercial",
-    "serviceType": [
-      "Murals"
-    ],
-    "spaceType": [
-      "School"
-    ],
-    "finish": [],
-    "blurb": "A full space-themed mural wrapping every wall and ceiling of a children's ministry room -- planets, nebulae, and a spacecraft interior.",
-    "source": "murals-source/crossroads-church-launch-pad",
-    "images": [
-      {
-        "file": "/gallery/murals/crossroads-0.jpg",
-        "alt": "Crossroads Church \"Launch Pad\" Kids Room"
-      },
-      {
-        "file": "/gallery/murals/crossroads-1.jpg",
-        "alt": "Crossroads Church \"Launch Pad\" Kids Room"
-      },
-      {
-        "file": "/gallery/murals/crossroads-2.jpg",
-        "alt": "Crossroads Church \"Launch Pad\" Kids Room"
-      },
-      {
-        "file": "/gallery/murals/crossroads-3.jpg",
-        "alt": "Crossroads Church \"Launch Pad\" Kids Room"
-      },
-      {
-        "file": "/gallery/murals/crossroads-4.jpg",
-        "alt": "Crossroads Church \"Launch Pad\" Kids Room"
-      },
-      {
-        "file": "/gallery/murals/crossroads-5.jpg",
-        "alt": "Crossroads Church \"Launch Pad\" Kids Room"
-      },
-      {
-        "file": "/gallery/murals/crossroads-6.jpg",
-        "alt": "Crossroads Church \"Launch Pad\" Kids Room"
-      },
-      {
-        "file": "/gallery/murals/crossroads-7.jpg",
-        "alt": "Crossroads Church \"Launch Pad\" Kids Room"
-      }
-    ]
-  },
-  {
-    "id": "mural-various-business",
-    "title": "Restaurant & Retail Murals",
-    "audience": "Commercial",
-    "serviceType": [
-      "Murals"
-    ],
-    "spaceType": [
-      "Restaurant/Hospitality"
-    ],
-    "finish": [],
-    "blurb": "Character art, custom lettering, faux-stone finishes, and even a blacklight-reactive mural for local restaurants and retail spaces.",
-    "source": "murals-source/various-murals",
-    "images": [
-      {
-        "file": "/gallery/murals/various-0.jpg",
-        "alt": "Restaurant & Retail Murals"
-      },
-      {
-        "file": "/gallery/murals/various-1.jpg",
-        "alt": "Restaurant & Retail Murals"
-      },
-      {
-        "file": "/gallery/murals/various-2.jpg",
-        "alt": "Restaurant & Retail Murals"
-      },
-      {
-        "file": "/gallery/murals/various-3.jpg",
-        "alt": "Restaurant & Retail Murals"
-      },
-      {
-        "file": "/gallery/murals/various-4.jpg",
-        "alt": "Restaurant & Retail Murals"
-      },
-      {
-        "file": "/gallery/murals/various-5.jpg",
-        "alt": "Restaurant & Retail Murals"
-      },
-      {
-        "file": "/gallery/murals/various-6.jpg",
-        "alt": "Restaurant & Retail Murals"
-      },
-      {
-        "file": "/gallery/murals/various-7.jpg",
-        "alt": "Restaurant & Retail Murals"
-      },
-      {
-        "file": "/gallery/murals/various-8.jpg",
-        "alt": "Restaurant & Retail Murals"
-      },
-      {
-        "file": "/gallery/murals/various-9.jpg",
-        "alt": "Restaurant & Retail Murals"
-      }
-    ]
-  },
-  {
     "id": "mural-byllesby",
     "title": "Lake Byllesby Pavilion Ceiling Mural",
     "audience": "Commercial",
@@ -876,7 +668,7 @@
     ]
   },
   {
-    "id": "curated-log-home-interior-staining-27",
+    "id": "curated-log-home-interior-staining-22",
     "title": "Log Home Interior Staining",
     "audience": "Residential",
     "serviceType": [
@@ -896,7 +688,7 @@
     ]
   },
   {
-    "id": "curated-log-home-exterior-restoration-28",
+    "id": "curated-log-home-exterior-restoration-23",
     "title": "Log Home Exterior Restoration",
     "audience": "Residential",
     "serviceType": [
@@ -916,7 +708,7 @@
     ]
   },
   {
-    "id": "curated-log-home-deck-staining-29",
+    "id": "curated-log-home-deck-staining-24",
     "title": "Log Home Deck Staining",
     "audience": "Residential",
     "serviceType": [
@@ -936,7 +728,7 @@
     ]
   },
   {
-    "id": "curated-log-home-corner-detail-30",
+    "id": "curated-log-home-corner-detail-25",
     "title": "Log Home Corner Detail",
     "audience": "Residential",
     "serviceType": [
@@ -956,7 +748,7 @@
     ]
   },
   {
-    "id": "curated-log-home-restoration-detail-31",
+    "id": "curated-log-home-restoration-detail-26",
     "title": "Log Home Restoration Detail",
     "audience": "Residential",
     "serviceType": [
@@ -976,7 +768,7 @@
     ]
   },
   {
-    "id": "curated-a-frame-log-cabin-32",
+    "id": "curated-a-frame-log-cabin-27",
     "title": "A-Frame Log Cabin",
     "audience": "Residential",
     "serviceType": [
@@ -996,7 +788,7 @@
     ]
   },
   {
-    "id": "curated-large-log-home-exterior-33",
+    "id": "curated-large-log-home-exterior-28",
     "title": "Large Log Home Exterior",
     "audience": "Residential",
     "serviceType": [
@@ -1016,7 +808,7 @@
     ]
   },
   {
-    "id": "curated-log-home-exterior-stain-34",
+    "id": "curated-log-home-exterior-stain-29",
     "title": "Log Home Exterior Stain",
     "audience": "Residential",
     "serviceType": [
@@ -1036,7 +828,7 @@
     ]
   },
   {
-    "id": "curated-log-cabin-exterior-35",
+    "id": "curated-log-cabin-exterior-30",
     "title": "Log Cabin Exterior",
     "audience": "Residential",
     "serviceType": [
@@ -1056,7 +848,7 @@
     ]
   },
   {
-    "id": "curated-log-home-exterior-36",
+    "id": "curated-log-home-exterior-31",
     "title": "Log Home Exterior",
     "audience": "Residential",
     "serviceType": [
@@ -1076,7 +868,7 @@
     ]
   },
   {
-    "id": "curated-log-cabin-restoration-37",
+    "id": "curated-log-cabin-restoration-32",
     "title": "Log Cabin Restoration",
     "audience": "Residential",
     "serviceType": [
@@ -1096,7 +888,7 @@
     ]
   },
   {
-    "id": "curated-shed-outbuilding-painting-38",
+    "id": "curated-shed-outbuilding-painting-33",
     "title": "Shed & Outbuilding Painting",
     "audience": "Residential",
     "serviceType": [
@@ -1116,7 +908,7 @@
     ]
   },
   {
-    "id": "curated-garage-exterior-painting-39",
+    "id": "curated-garage-exterior-painting-34",
     "title": "Garage Exterior Painting",
     "audience": "Residential",
     "serviceType": [
@@ -1136,7 +928,7 @@
     ]
   },
   {
-    "id": "curated-garage-flake-floor-40",
+    "id": "curated-garage-flake-floor-35",
     "title": "Garage Flake Floor",
     "audience": "Residential",
     "serviceType": [
@@ -1158,7 +950,7 @@
     ]
   },
   {
-    "id": "curated-garage-floor-coating-41",
+    "id": "curated-garage-floor-coating-36",
     "title": "Garage Floor Coating",
     "audience": "Residential",
     "serviceType": [
@@ -1178,7 +970,7 @@
     ]
   },
   {
-    "id": "curated-exterior-home-painting-42",
+    "id": "curated-exterior-home-painting-37",
     "title": "Exterior Home Painting",
     "audience": "Residential",
     "serviceType": [
@@ -1198,7 +990,7 @@
     ]
   },
   {
-    "id": "curated-brick-home-exterior-painting-43",
+    "id": "curated-brick-home-exterior-painting-38",
     "title": "Brick Home Exterior Painting",
     "audience": "Residential",
     "serviceType": [
@@ -1218,7 +1010,7 @@
     ]
   },
   {
-    "id": "curated-porch-ceiling-staining-44",
+    "id": "curated-porch-ceiling-staining-39",
     "title": "Porch Ceiling Staining",
     "audience": "Residential",
     "serviceType": [
@@ -1238,7 +1030,7 @@
     ]
   },
   {
-    "id": "curated-metallic-epoxy-floor-detail-45",
+    "id": "curated-metallic-epoxy-floor-detail-40",
     "title": "Metallic Epoxy Floor Detail",
     "audience": "Commercial",
     "serviceType": [
@@ -1260,7 +1052,7 @@
     ]
   },
   {
-    "id": "curated-commercial-office-stairwell-46",
+    "id": "curated-commercial-office-stairwell-41",
     "title": "Commercial Office Stairwell",
     "audience": "Commercial",
     "serviceType": [
@@ -1280,7 +1072,7 @@
     ]
   },
   {
-    "id": "curated-modern-office-lobby-47",
+    "id": "curated-modern-office-lobby-42",
     "title": "Modern Office Lobby",
     "audience": "Commercial",
     "serviceType": [
@@ -1300,7 +1092,7 @@
     ]
   },
   {
-    "id": "curated-commercial-office-exterior-48",
+    "id": "curated-commercial-office-exterior-43",
     "title": "Commercial Office Exterior",
     "audience": "Commercial",
     "serviceType": [
@@ -1320,7 +1112,7 @@
     ]
   },
   {
-    "id": "curated-institutional-building-exterior-49",
+    "id": "curated-institutional-building-exterior-44",
     "title": "Institutional Building Exterior",
     "audience": "Commercial",
     "serviceType": [
@@ -1340,7 +1132,7 @@
     ]
   },
   {
-    "id": "curated-commercial-interior-painting-50",
+    "id": "curated-commercial-interior-painting-45",
     "title": "Commercial Interior Painting",
     "audience": "Commercial",
     "serviceType": [
@@ -1360,7 +1152,7 @@
     ]
   },
   {
-    "id": "curated-commercial-lobby-51",
+    "id": "curated-commercial-lobby-46",
     "title": "Commercial Lobby",
     "audience": "Commercial",
     "serviceType": [
@@ -1380,7 +1172,7 @@
     ]
   },
   {
-    "id": "curated-office-building-exterior-52",
+    "id": "curated-office-building-exterior-47",
     "title": "Office Building Exterior",
     "audience": "Commercial",
     "serviceType": [
@@ -1400,7 +1192,7 @@
     ]
   },
   {
-    "id": "curated-healthcare-facility-interior-53",
+    "id": "curated-healthcare-facility-interior-48",
     "title": "Healthcare Facility Interior",
     "audience": "Commercial",
     "serviceType": [
@@ -1420,7 +1212,7 @@
     ]
   },
   {
-    "id": "curated-gym-fitness-center-54",
+    "id": "curated-gym-fitness-center-49",
     "title": "Gym & Fitness Center",
     "audience": "Commercial",
     "serviceType": [
@@ -1440,7 +1232,7 @@
     ]
   },
   {
-    "id": "curated-school-gym-hallway-55",
+    "id": "curated-school-gym-hallway-50",
     "title": "School Gym Hallway",
     "audience": "Commercial",
     "serviceType": [
@@ -1460,7 +1252,7 @@
     ]
   },
   {
-    "id": "curated-school-hallway-56",
+    "id": "curated-school-hallway-51",
     "title": "School Hallway",
     "audience": "Commercial",
     "serviceType": [
@@ -1480,7 +1272,7 @@
     ]
   },
   {
-    "id": "curated-commercial-hallway-floor-57",
+    "id": "curated-commercial-hallway-floor-52",
     "title": "Commercial Hallway Floor",
     "audience": "Commercial",
     "serviceType": [
@@ -1500,7 +1292,7 @@
     ]
   },
   {
-    "id": "curated-gymnasium-basketball-court-58",
+    "id": "curated-gymnasium-basketball-court-53",
     "title": "Gymnasium Basketball Court",
     "audience": "Commercial",
     "serviceType": [
@@ -1520,7 +1312,7 @@
     ]
   },
   {
-    "id": "curated-retail-gas-station-exterior-59",
+    "id": "curated-retail-gas-station-exterior-54",
     "title": "Retail / Gas Station Exterior",
     "audience": "Commercial",
     "serviceType": [
@@ -1540,7 +1332,7 @@
     ]
   },
   {
-    "id": "curated-terrazzo-look-commercial-floor-60",
+    "id": "curated-terrazzo-look-commercial-floor-55",
     "title": "Terrazzo-Look Commercial Floor",
     "audience": "Commercial",
     "serviceType": [
@@ -1560,7 +1352,7 @@
     ]
   },
   {
-    "id": "curated-school-auditorium-61",
+    "id": "curated-school-auditorium-56",
     "title": "School Auditorium",
     "audience": "Commercial",
     "serviceType": [
@@ -1580,7 +1372,7 @@
     ]
   },
   {
-    "id": "curated-gym-weight-room-floor-62",
+    "id": "curated-gym-weight-room-floor-57",
     "title": "Gym Weight Room Floor",
     "audience": "Commercial",
     "serviceType": [
@@ -1600,7 +1392,7 @@
     ]
   },
   {
-    "id": "curated-school-locker-room-63",
+    "id": "curated-school-locker-room-58",
     "title": "School Locker Room",
     "audience": "Commercial",
     "serviceType": [
@@ -1620,7 +1412,7 @@
     ]
   },
   {
-    "id": "curated-industrial-tank-room-64",
+    "id": "curated-industrial-tank-room-59",
     "title": "Industrial Tank Room",
     "audience": "Commercial",
     "serviceType": [
@@ -1640,7 +1432,7 @@
     ]
   },
   {
-    "id": "curated-school-lobby-65",
+    "id": "curated-school-lobby-60",
     "title": "School Lobby",
     "audience": "Commercial",
     "serviceType": [
@@ -1660,7 +1452,7 @@
     ]
   },
   {
-    "id": "curated-coffee-shop-counter-66",
+    "id": "curated-coffee-shop-counter-61",
     "title": "Coffee Shop Counter",
     "audience": "Commercial",
     "serviceType": [
@@ -1680,7 +1472,7 @@
     ]
   },
   {
-    "id": "curated-indoor-swimming-pool-deck-67",
+    "id": "curated-indoor-swimming-pool-deck-62",
     "title": "Indoor Swimming Pool Deck",
     "audience": "Commercial",
     "serviceType": [
@@ -1700,7 +1492,7 @@
     ]
   },
   {
-    "id": "curated-gym-floor-with-mascot-logo-68",
+    "id": "curated-gym-floor-with-mascot-logo-63",
     "title": "Gym Floor with Mascot Logo",
     "audience": "Commercial",
     "serviceType": [
@@ -1720,7 +1512,7 @@
     ]
   },
   {
-    "id": "curated-stadium-construction-69",
+    "id": "curated-stadium-construction-64",
     "title": "Stadium Construction",
     "audience": "Commercial",
     "serviceType": [
@@ -1740,7 +1532,7 @@
     ]
   },
   {
-    "id": "curated-flake-floor-shower-area-70",
+    "id": "curated-flake-floor-shower-area-65",
     "title": "Flake Floor Shower Area",
     "audience": "Commercial",
     "serviceType": [
@@ -1762,7 +1554,7 @@
     ]
   },
   {
-    "id": "curated-gym-under-construction-71",
+    "id": "curated-gym-under-construction-66",
     "title": "Gym Under Construction",
     "audience": "Commercial",
     "serviceType": [
@@ -1782,7 +1574,7 @@
     ]
   },
   {
-    "id": "curated-gym-floor-layout-72",
+    "id": "curated-gym-floor-layout-67",
     "title": "Gym Floor Layout",
     "audience": "Commercial",
     "serviceType": [
@@ -1802,7 +1594,7 @@
     ]
   },
   {
-    "id": "curated-stadium-field-prep-73",
+    "id": "curated-stadium-field-prep-68",
     "title": "Stadium Field Prep",
     "audience": "Commercial",
     "serviceType": [
@@ -1822,7 +1614,7 @@
     ]
   },
   {
-    "id": "curated-garage-floor-coating-74",
+    "id": "curated-garage-floor-coating-69",
     "title": "Garage Floor Coating",
     "audience": "Residential",
     "serviceType": [
@@ -1842,7 +1634,7 @@
     ]
   },
   {
-    "id": "curated-log-home-staining-in-progress-75",
+    "id": "curated-log-home-staining-in-progress-70",
     "title": "Log Home Staining In Progress",
     "audience": "Residential",
     "serviceType": [

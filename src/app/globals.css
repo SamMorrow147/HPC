@@ -34,11 +34,10 @@ body {
   color: var(--foreground);
 }
 
-/* ---- Spray-fill effect ---------------------------------------------------
-   Ported from the RocoFoam project (SprayFillBand / SprayHoverFill). Canvas
-   droplets sweep across, then each dot grows until the union is one solid
-   fill -- reads like a spray gun laying down paint. The canvas is the
-   bounding box; the fallback span is the finished solid fill for no-JS. */
+/* ---- Spray-paint fill ----------------------------------------------------
+   Canvas droplets laid down in fast straight passes until the surface is
+   solid -- a paint sprayer, not foam (engine: src/lib/spray.js). The canvas
+   is the bounding box; the fallback span is the finished fill for no-JS. */
 .spray-band {
   position: absolute;
   left: 0;
@@ -52,11 +51,6 @@ body {
   .spray-band {
     height: 44px;
   }
-}
-.spray-band--top {
-  top: 0;
-  bottom: auto;
-  transform: scaleY(-1);
 }
 /* Whole-section fill: stretch the band over its parent, behind content. */
 .spray-band--fill {
@@ -76,8 +70,7 @@ body {
   inset: 0;
   background: var(--color-brand-green);
 }
-.spray-band[data-armed] .spray-band-fallback,
-.spray-band[data-play="buff"] .spray-band-fallback {
+.spray-band[data-armed] .spray-band-fallback {
   display: none;
 }
 

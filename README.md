@@ -19,7 +19,7 @@ before templating out the rest):
 - **Home page** (`src/app/page.js`) — hero, audience split, services grid,
   featured work strip, stats, mural spotlight (Lake Byllesby Pavilion), CTA.
 - **Gallery page** (`src/app/gallery/page.js`) — working multi-facet filter
-  (Audience / Service Type / Space / Finish) over 76 real tagged projects,
+  (Audience / Service Type / Space / Finish) over 71 real tagged projects,
   lightbox with "copy shareable link".
 
 **Not built yet**: every other nav destination (Residential/Commercial hub
@@ -41,8 +41,8 @@ the nav data but 404 until templated out in the next pass.
 ## Auto-tagging caveat
 
 Gallery tagging is a first pass ("auto-tag from what we know," not exhaustive
-manual review): every murals-source photo and every site-scrape photo is
-accurately tagged via its source page; the drive-2017 and facebook-new photos
+manual review): the Lake Byllesby mural and every site-scrape photo are
+accurately tagged via their source; the drive-2017 and facebook-new photos
 are a hand-curated subset (~45) tagged from what was visually reviewed via
 contact sheets earlier in the project — the remaining ~375 photos in those
 two folders aren't in the gallery yet. Expanding coverage is a follow-up
@@ -60,3 +60,21 @@ npm run dev
 Defined in `src/app/globals.css` (`--color-brand-*`), sampled from the
 current live site's green/charcoal/red palette — not final brand system,
 easy to swap.
+
+## Murals
+
+Only the Lake Byllesby Pavilion ceiling mural (from the Clubhaus case study,
+with its process video) is on the site. The Mural Division portfolio PDF
+projects -- Fargo ANG hangar, Marthaler Farms tank, school murals,
+Crossroads Church, restaurant/retail -- were pulled for now; the source
+images are still in `HPC Sitemap/murals-source/` and can be re-added in
+`scripts/build-projects.py`.
+
+## Spray-paint effect
+
+`src/lib/spray.js` is a paint-sprayer fill engine (fine droplets in fast
+straight passes with gaussian-feathered edges, settling into a solid film).
+`SprayFillBand` (scroll-triggered stripes / full-section fills) and
+`SprayHoverFill` (reversible button hover) draw with it. Originated as a
+port of the RocoFoam spray components, then rebuilt -- Roco's version grew
+circles into a foam look, which isn't what a sprayer does.

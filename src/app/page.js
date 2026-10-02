@@ -8,11 +8,11 @@ const FEATURED_IDS = [
   "curated-garage-flake-floor",
   "curated-large-log-home-exterior",
   "curated-gymnasium-basketball-court",
-  "mural-crossroads-church",
+  "mural-byllesby",
   "curated-metallic-epoxy-floor-detail",
   "site-driveway-coatings",
   "curated-modern-office-lobby",
-  "mural-fargo-ang",
+  "curated-gym-weight-room-floor",
 ];
 
 function findProject(idPrefix) {
@@ -68,7 +68,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <SprayFillBand />
+        <SprayFillBand feather={14} />
       </section>
 
       {/* Audience split */}
