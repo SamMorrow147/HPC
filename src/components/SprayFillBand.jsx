@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { makeSpray, upperBound, paintDots, solidAlpha, paintSolid, sweepDuration } from "@/lib/spray";
+import { makeSpray, upperBound, paintDots, sweepDuration } from "@/lib/spray";
 
 // A box that gets spray-painted solid when it scrolls into view -- one
 // nozzle pass right-to-left, round dots piling up behind it (lib/spray.js).
@@ -38,7 +38,6 @@ export function SprayFillBand({ color = BRAND_GREEN, className = "", feather = 0
     let startT = 0;
     let duration = 3000;
     let drawnTo = 0; // dot index already on the canvas
-    let drawnAlpha = 0; // film alpha already on the canvas
 
     const sizeCanvas = () => {
       const dpr = Math.min(2, window.devicePixelRatio || 1);
@@ -65,13 +64,6 @@ export function SprayFillBand({ color = BRAND_GREEN, className = "", feather = 0
       paintDots(ctx, spray, drawnTo, to);
       drawnTo = to;
 
-      // Wet-out film: draw only the increment so total alpha tracks solidAlpha(p).
-      const target = solidAlpha(p);
-      if (target > drawnAlpha) {
-        paintSolid(ctx, spray, (target - drawnAlpha) / (1 - drawnAlpha));
-        drawnAlpha = target;
-      }
-
       if (p >= 1) {
         drawFinal();
         done = true;
@@ -92,7 +84,6 @@ export function SprayFillBand({ color = BRAND_GREEN, className = "", feather = 0
       spray = makeSpray(W, H, { feather });
       duration = sweepDuration(W);
       drawnTo = 0;
-      drawnAlpha = 0;
       startT = 0;
       raf = requestAnimationFrame(frame);
     };
@@ -120,8 +111,7 @@ export function SprayFillBand({ color = BRAND_GREEN, className = "", feather = 0
         sizeCanvas();
         spray = makeSpray(W, H, { feather });
         drawnTo = 0;
-        drawnAlpha = 0;
-        startT = 0;
+          startT = 0;
       }
     };
     window.addEventListener("resize", onResize);

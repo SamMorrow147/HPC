@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { makeSpray, upperBound, paintDots, solidAlpha, paintSolid } from "@/lib/spray";
+import { makeSpray, upperBound, paintDots } from "@/lib/spray";
 
 // Hover version of the spray fill: a canvas behind a button's label where
 // a nozzle sweeps right-to-left, dropping round dots until the button is solid
@@ -63,7 +63,6 @@ export function SprayHoverFill({ fill = BRAND_GREEN }) {
         return;
       }
       paintDots(ctx, spray, 0, upperBound(spray, progress));
-      paintSolid(ctx, spray, solidAlpha(progress));
     };
 
     const tick = (now) => {

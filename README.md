@@ -75,8 +75,8 @@ images are still in `HPC Sitemap/murals-source/` and can be re-added in
 `src/lib/spray.js` is a pointillist spray engine: a single nozzle makes one
 right-to-left pass, round solid dots land around it in a gaussian cloud
 (loose overspray ahead of the front, dense behind it), and the fill builds by
-more dots landing -- nothing grows. A short wet-out at the end closes
-pinholes. Behavior is modeled on the "Spray Dots Effect" project's
+more dots landing -- nothing grows and nothing is faded in afterward (the
+dots overlap ~8x, so coverage is ~99.9% as the nozzle passes). Behavior is modeled on the "Spray Dots Effect" project's
 `SprayFillCanvas`. `SprayFillBand` (scroll-triggered stripes / full-section
 fills) and `SprayHoverFill` (reversible button hover) draw with it. An
 earlier port of RocoFoam's spray (circles growing until they merge) read as

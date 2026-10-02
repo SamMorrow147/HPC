@@ -14,9 +14,6 @@ function gauss() {
   return Math.random() + Math.random() + Math.random() - 1.5; // ~N(0, 0.5)
 }
 
-const SWEEP_END = 0.88; // progress at which the nozzle leaves the box
-const SOLID_START = 0.88; // wet-out film starts here
-
 // Sweep time for a box this wide: roughly constant nozzle speed.
 export function sweepDuration(W) {
   return Math.min(2200, 700 + W * 0.7);
@@ -24,8 +21,13 @@ export function sweepDuration(W) {
 
 export function makeSpray(W, H, { feather = 0, direction = "rtl" } = {}) {
   const solidH = H - feather;
-  const meanArea = 3.9; // mean dot area (px^2) for the size mix below
-  const total = Math.round(((W * solidH) / meanArea) * 2.6);
+  const meanArea = 7.6; // mean dot area (px^2) for the size mix below
+  const overlap = 8.5; // target dots covering any point inside the box
+  const lead = 60; // nozzle starts/ends outside so the edges get full coverage
+  const span = W + lead * 2;
+  // dots land all along the nozzle's travel, so scale the count by the
+  // travel/box ratio to keep the density inside the box at `overlap`
+  const total = Math.round(((W * solidH) / meanArea) * overlap * (span / W));
   const nFeather = Math.round(W * feather * 0.35);
   const n = total + nFeather;
 
@@ -35,16 +37,14 @@ export function makeSpray(W, H, { feather = 0, direction = "rtl" } = {}) {
   const t = new Float32Array(n);
   let c = 0;
 
-  const lead = 40; // nozzle starts/ends outside the box
-  const span = W + lead * 2;
   const sign = direction === "rtl" ? -1 : 1;
   const start = direction === "rtl" ? W + lead : -lead;
 
   const dotRadius = () => {
     const k = Math.random();
-    if (k < 0.55) return 0.5 + Math.random() * 0.4; // fine specks
-    if (k < 0.9) return 0.9 + Math.random() * 0.7; // mid
-    return 1.6 + Math.random() * 0.8; // occasional big drop
+    if (k < 0.4) return 0.5 + Math.random() * 0.5; // fine specks
+    if (k < 0.8) return 1.0 + Math.random() * 1.0; // mid
+    return 2.0 + Math.random() * 1.2; // big drops
   };
 
   for (let i = 0; i < n; i++) {
@@ -57,13 +57,16 @@ export function makeSpray(W, H, { feather = 0, direction = "rtl" } = {}) {
       // loose overspray above the solid region: sparse, fading upward
       py = feather - Math.abs(gauss()) * feather * 1.1;
     } else {
-      py = feather + Math.random() * solidH;
+      // centers may sit a few px outside the box so edge pixels get the
+      // same coverage as the middle (the canvas clips them)
+      const edge = feather > 0 ? 0 : 4;
+      py = feather - edge + Math.random() * (solidH + edge + 4);
     }
-    if (px < 0 || px > W || py < 0 || py > H) continue;
+    if (px < -4 || px > W + 4 || py < -4 || py > H + 4) continue;
     x[c] = px;
     y[c] = py;
     r[c] = dotRadius();
-    t[c] = u * SWEEP_END;
+    t[c] = u;
     c++;
   }
   return { x, y, r, t, count: c, feather, W, H };
@@ -90,18 +93,4 @@ export function paintDots(ctx, spray, from, to) {
     ctx.arc(x[i], y[i], r[i], 0, 6.2832);
   }
   ctx.fill();
-}
-
-// 0 until the nozzle has left the box, then eases up to 1 at p = 1.
-export function solidAlpha(p) {
-  const k = Math.min(1, Math.max(0, (p - SOLID_START) / (1 - SOLID_START)));
-  return k * k * (3 - 2 * k);
-}
-
-// Fill the solid region (everything below the feather zone) at an alpha.
-export function paintSolid(ctx, spray, alpha) {
-  if (alpha <= 0) return;
-  ctx.globalAlpha = alpha;
-  ctx.fillRect(0, spray.feather, spray.W, spray.H - spray.feather);
-  ctx.globalAlpha = 1;
 }
