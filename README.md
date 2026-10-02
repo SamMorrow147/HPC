@@ -72,9 +72,12 @@ images are still in `HPC Sitemap/murals-source/` and can be re-added in
 
 ## Spray-paint effect
 
-`src/lib/spray.js` is a paint-sprayer fill engine (fine droplets in fast
-straight passes with gaussian-feathered edges, settling into a solid film).
-`SprayFillBand` (scroll-triggered stripes / full-section fills) and
-`SprayHoverFill` (reversible button hover) draw with it. Originated as a
-port of the RocoFoam spray components, then rebuilt -- Roco's version grew
-circles into a foam look, which isn't what a sprayer does.
+`src/lib/spray.js` is a pointillist spray engine: a single nozzle makes one
+right-to-left pass, round solid dots land around it in a gaussian cloud
+(loose overspray ahead of the front, dense behind it), and the fill builds by
+more dots landing -- nothing grows. A short wet-out at the end closes
+pinholes. Behavior is modeled on the "Spray Dots Effect" project's
+`SprayFillCanvas`. `SprayFillBand` (scroll-triggered stripes / full-section
+fills) and `SprayHoverFill` (reversible button hover) draw with it. An
+earlier port of RocoFoam's spray (circles growing until they merge) read as
+foam, so it was dropped.

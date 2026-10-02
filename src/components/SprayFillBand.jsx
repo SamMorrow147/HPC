@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { makeSpray, upperBound, paintDots, solidAlpha, paintSolid } from "@/lib/spray";
+import { makeSpray, upperBound, paintDots, solidAlpha, paintSolid, sweepDuration } from "@/lib/spray";
 
-// A box that gets spray-painted solid when it scrolls into view -- fine
-// droplets laid down in straight back-and-forth passes (see lib/spray.js).
+// A box that gets spray-painted solid when it scrolls into view -- one
+// nozzle pass right-to-left, round dots piling up behind it (lib/spray.js).
 // Used as a stripe on a section edge, or stretched over a whole section
 // with className="spray-band--fill". `feather` adds that many px of loose
 // overspray above the solid region (bottom-anchored stripes).
@@ -90,9 +90,7 @@ export function SprayFillBand({ color = BRAND_GREEN, className = "", feather = 0
         return;
       }
       spray = makeSpray(W, H, { feather });
-      // more passes = longer, so each stroke keeps a believable speed
-      const passes = Math.max(2, Math.round((H - feather) / 20));
-      duration = Math.min(3600, 900 + passes * 350);
+      duration = sweepDuration(W);
       drawnTo = 0;
       drawnAlpha = 0;
       startT = 0;

@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { makeSpray, upperBound, paintDots, solidAlpha, paintSolid } from "@/lib/spray";
 
 // Hover version of the spray fill: a canvas behind a button's label where
-// fine droplets are sprayed across in quick passes until the button is solid
+// a nozzle sweeps right-to-left, dropping round dots until the button is solid
 // (see lib/spray.js). A progress value eases toward 1 while hovered/focused
 // and back toward 0 when not, and every frame is redrawn from that value --
 // so leaving mid-spray smoothly un-sprays instead of snapping.
@@ -51,7 +51,7 @@ export function SprayHoverFill({ fill = BRAND_GREEN }) {
       canvas.width = Math.max(1, Math.floor(W * dpr));
       canvas.height = Math.max(1, Math.floor(H * dpr));
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      spray = makeSpray(W, H, { passes: Math.max(2, Math.round(H / 14)) });
+      spray = makeSpray(W, H);
     };
 
     const draw = () => {
