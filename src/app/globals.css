@@ -33,3 +33,73 @@ body {
   background: var(--background);
   color: var(--foreground);
 }
+
+/* ---- Spray-fill effect ---------------------------------------------------
+   Ported from the RocoFoam project (SprayFillBand / SprayHoverFill). Canvas
+   droplets sweep across, then each dot grows until the union is one solid
+   fill -- reads like a spray gun laying down paint. The canvas is the
+   bounding box; the fallback span is the finished solid fill for no-JS. */
+.spray-band {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 32px;
+  z-index: 5;
+  pointer-events: none;
+}
+@media (min-width: 640px) {
+  .spray-band {
+    height: 44px;
+  }
+}
+.spray-band--top {
+  top: 0;
+  bottom: auto;
+  transform: scaleY(-1);
+}
+/* Whole-section fill: stretch the band over its parent, behind content. */
+.spray-band--fill {
+  top: 0;
+  height: auto;
+  z-index: 0;
+}
+.spray-band-canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.spray-band-fallback {
+  position: absolute;
+  inset: 0;
+  background: var(--color-brand-green);
+}
+.spray-band[data-armed] .spray-band-fallback,
+.spray-band[data-play="buff"] .spray-band-fallback {
+  display: none;
+}
+
+/* Spray hover: droplets sweep across a button and fill it; leaving reverses. */
+.spray-hover-link {
+  position: relative;
+  overflow: hidden;
+}
+.spray-hover-canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.spray-hover-label {
+  position: relative;
+  z-index: 1;
+  transition: color 0.25s ease 0.18s;
+}
+.spray-hover-link[data-spray-armed]:hover .spray-hover-label,
+.spray-hover-link[data-spray-armed]:focus-visible .spray-hover-label {
+  color: var(--color-brand-ink);
+}

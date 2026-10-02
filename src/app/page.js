@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import projects from "@/data/projects.json";
+import { SprayFillBand } from "@/components/SprayFillBand";
+import { SprayHoverFill } from "@/components/SprayHoverFill";
 
 const FEATURED_IDS = [
   "curated-garage-flake-floor",
@@ -52,18 +54,21 @@ export default function Home() {
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
               href="/contact/free-estimate"
-              className="rounded-full bg-brand-red px-7 py-3 text-sm font-bold text-white hover:bg-red-700"
+              className="spray-hover-link rounded-full bg-brand-red px-7 py-3 text-sm font-bold text-white"
             >
-              Get a Free Estimate
+              <SprayHoverFill fill="#ffffff" />
+              <span className="spray-hover-label">Get a Free Estimate</span>
             </Link>
             <Link
               href="/gallery"
-              className="rounded-full border-2 border-white px-7 py-3 text-sm font-bold text-white hover:bg-white hover:text-brand-ink"
+              className="spray-hover-link rounded-full border-2 border-white px-7 py-3 text-sm font-bold text-white"
             >
-              See Our Work
+              <SprayHoverFill />
+              <span className="spray-hover-label">See Our Work</span>
             </Link>
           </div>
         </div>
+        <SprayFillBand />
       </section>
 
       {/* Audience split */}
@@ -224,31 +229,34 @@ export default function Home() {
             </p>
             <Link
               href="/commercial/murals"
-              className="mt-6 inline-block rounded-full bg-brand-ink px-6 py-3 text-sm font-bold text-white hover:bg-black"
+              className="spray-hover-link mt-6 inline-block rounded-full bg-brand-ink px-6 py-3 text-sm font-bold text-white"
             >
-              See the Murals Gallery &rarr;
+              <SprayHoverFill />
+              <span className="spray-hover-label">See the Murals Gallery &rarr;</span>
             </Link>
           </div>
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="bg-brand-green py-14">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 text-center sm:flex-row sm:text-left">
+      <section className="relative overflow-hidden py-14">
+        <SprayFillBand className="spray-band--fill" />
+        <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 text-center sm:flex-row sm:text-left">
           <div>
-            <h2 className="text-2xl font-extrabold text-white">
+            <h2 className="text-2xl font-extrabold text-brand-ink">
               Ready to start your project?
             </h2>
-            <p className="mt-1 text-white/90">
+            <p className="mt-1 text-brand-ink/80">
               Free estimates for residential and commercial work across
               Minnesota.
             </p>
           </div>
           <Link
             href="/contact/free-estimate"
-            className="shrink-0 rounded-full bg-white px-7 py-3 text-sm font-bold text-brand-ink hover:bg-brand-charcoal hover:text-white"
+            className="spray-hover-link shrink-0 rounded-full bg-brand-ink px-7 py-3 text-sm font-bold text-white"
           >
-            Get a Free Estimate
+            <SprayHoverFill fill="#ffffff" />
+            <span className="spray-hover-label">Get a Free Estimate</span>
           </Link>
         </div>
       </section>
