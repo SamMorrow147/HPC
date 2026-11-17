@@ -1,240 +1,290 @@
 import Image from "next/image";
 import Link from "next/link";
-import projects from "@/data/projects.json";
+import { clientLogos, industries } from "@/data/industries";
+import LogoMarquee from "@/components/LogoMarquee";
+import { photo, photoHref } from "@/lib/gallery";
+import gallery from "@/data/gallery.json";
 import { SprayFillBand } from "@/components/SprayFillBand";
 import { SprayHoverFill } from "@/components/SprayHoverFill";
+import HeroShowcase from "@/components/HeroShowcase";
+import ServiceAreaMap from "@/components/ServiceAreaMap";
+import SectionSlideshow from "@/components/SectionSlideshow";
+import { HERO_SLIDES, SECTION_PHOTOS, FEATURED_IDS } from "@/data/homepage-photos";
 
-const FEATURED_IDS = [
-  "curated-garage-flake-floor",
-  "curated-large-log-home-exterior",
-  "curated-gymnasium-basketball-court",
-  "mural-byllesby",
-  "curated-metallic-epoxy-floor-detail",
-  "site-driveway-coatings",
-  "curated-modern-office-lobby",
-  "curated-gym-weight-room-floor",
+const heroSlides = HERO_SLIDES.map((s) => {
+  const p = gallery.find((g) => g.id === s.id);
+  return { ...s, src: p.file, alt: p.title, caption: p.album || p.title };
+});
+const featured = FEATURED_IDS.map((id) => gallery.find((p) => p.id === id));
+
+// Every service section gets sprayed in its own light tint as it scrolls
+// in, so each line reads as its own band. Tints alternate down the page:
+// lime, sage, slate (Steel), timber, sage. Sprays alternate
+// direction. Text uses the deeper green/steel shades so it stays AA on every tint.
+const SECTION_TINTS = ["#e5ecd3", "#d4dbcf", "#d5dbdf", "#dcd2c3", "#d4dbcf"];
+
+// One full section per service line. Proof points are pulled from the
+// service pages so the homepage never claims more than they do. Slideshow
+// photos live in SECTION_PHOTOS (src/data/homepage-photos.js).
+const SERVICE_SECTIONS = [
+  {
+    label: "Floor Coatings",
+    href: "/floor-coatings",
+    alt: "Epoxy floor coating in a commercial facility",
+    title: "Epoxy, polyaspartic and urethane cement floors, installed year-round",
+    body: "Our biggest service line. Flake, metallic and quartz epoxy, one-day polyaspartic, urethane cement for kitchens and breweries, and polished concrete. We grind off failed coatings from other contractors and prep the slab so the new system stays down.",
+    points: [
+      "40,000 sq ft single floor for Wallace Carlson",
+      "2014 Nicollet Bus Garage floor, no wear more than 10 years later",
+      "Mercedes-Benz Bloomington, Mr. Carwash, Casey's & Cenex",
+      "Cold-weather products, so floors go in all winter",
+    ],
+  },
+  {
+    label: "Commercial Painting",
+    href: "/commercial-painting",
+    alt: "Commercial interior painting at a school",
+    title: "Schools, fire stations and campuses, painted around the people using them",
+    body: "Interior and exterior painting for schools, government buildings, hotels, retail and dealerships, scheduled over breaks and off-hours so the building stays open. Lockers, partitions and metal fixtures get refinished in place with electrostatic painting.",
+    points: [
+      "1,000+ lockers refinished electrostatically at St. Louis Park HS",
+      "NDSU, St. Cloud State, UW-River Falls & Park Center HS",
+      "Fire stations, jails, MnDOT, NAVFAC & the National Guard Armory",
+      "Lake Harriet Bandshell & Kenwood Mansion",
+    ],
+  },
+  {
+    label: "Industrial Coatings",
+    href: "/industrial-coatings",
+    alt: "Coating a wind turbine tower from a boom lift",
+    title: "Tank linings and steel for 3M, BNSF, Kraft and Univar",
+    body: "We sandblast and line chemical, food and water tanks, recoat structural steel, and coat railyard and agency fuel tanks. For these jobs a failed coating means downtime, so prep and lining are done by the same crew.",
+    points: [
+      "Univar sodium hydroxide tank, blasted and relined",
+      "Kraft Albany food tanks & Cottage Grove water storage",
+      "BNSF railyard fuel tanks; ConVault tanks for USFWS & MN DNR",
+      "3M machine refurbishment & the Great River Energy wind turbine",
+    ],
+  },
+  {
+    label: "Log Home & Wood Restoration",
+    href: "/log-home-restoration",
+    alt: "Restored log home with fresh stain",
+    title: "Log homes and lake cabins brought back from gray",
+    body: "We strip, repair, chink and stain log homes and cabins across Minnesota and western Wisconsin, then come back for maintenance recoats so the finish never gets away from you. Most of this work comes from neighbors who saw the house next door.",
+    points: [
+      "Ecoblast or steam stripping that doesn't chew up the wood",
+      "Rotted logs and shakes replaced before the finish goes on",
+      "Three-coat Structures Nature One or Permachink Lifeline 2",
+      "Back to Lake Ida in Alexandria more than eight times",
+    ],
+  },
+  {
+    label: "Specialty",
+    href: "/specialty",
+    alt: "Specialty coating and wallcovering work",
+    title: "The jobs that need a coatings specialist, not a general painter",
+    body: "Tackable wallcovering for schools, decorative and historic concrete, waterproofing and traffic coatings, and hand-painted logos and murals.",
+    points: [
+      "Koroseal tackwall across metro schools",
+      "165-year-old concrete restored at St. Anthony Main",
+      "BASF traffic coatings on St. Cloud State stadium balconies",
+      "Lake Byllesby Pavilion ceiling mural",
+    ],
+  },
 ];
-
-function findProject(idPrefix) {
-  return projects.find((x) => x.id === idPrefix || x.id.startsWith(idPrefix));
-}
-function findImage(idPrefix) {
-  const p = findProject(idPrefix);
-  return p ? p.images[0].file : null;
-}
-
-const featured = FEATURED_IDS.map(findProject).filter(Boolean);
 
 export default function Home() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative flex min-h-[560px] items-center overflow-hidden bg-brand-charcoal">
-        <Image
-          src={findImage("curated-garage-flake-floor")}
-          alt="Epoxy flake garage floor coating"
-          fill
-          priority
-          className="object-cover opacity-50"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
-        <div className="relative mx-auto max-w-7xl px-6 py-24">
-          <p className="mb-3 text-sm font-bold uppercase tracking-widest text-brand-green">
-            Minnesota&apos;s Choice for Coatings Since 1998
+      {/* Hero: charcoal copy panel left, rotating job photos right (photos on top on mobile) */}
+      <section className="relative flex flex-col overflow-hidden bg-brand-charcoal lg:grid lg:min-h-[min(760px,calc(100svh-100px))] lg:grid-cols-[minmax(0,11fr)_minmax(0,13fr)]">
+        <div className="@container relative flex flex-col justify-center px-6 py-16 sm:px-10 lg:py-14 lg:pl-[max(1.5rem,calc((100vw-80rem)/2+1.5rem))] lg:pr-12">
+          <p className="whitespace-nowrap text-[min(0.75rem,3.75cqi)] font-bold uppercase tracking-[0.15em] text-brand-green sm:text-[min(0.75rem,3.25cqi)] sm:tracking-[0.25em]">
+            Commercial &middot; Industrial &middot; Residential
           </p>
-          <h1 className="max-w-2xl text-4xl font-extrabold leading-tight text-white sm:text-5xl">
-            Floors and finishes that hold up &mdash; for your home or your business.
+          {/* Always two lines, two words each: sized off the column width
+              (cqi) so "Better Performance." never wraps. */}
+          <h1 className="mt-5 text-[min(8.2cqi,4.25rem)] font-extrabold uppercase leading-[0.95] tracking-tight text-white">
+            <span className="block whitespace-nowrap">Better Surfaces.</span>
+            <span className="block whitespace-nowrap text-brand-green">Better Performance.</span>
           </h1>
-          <p className="mt-5 max-w-xl text-lg text-white/80">
-            Garage and basement floor coatings, exterior painting and log home
-            restoration, commercial flooring, and murals &mdash; done by the
-            same crew that&apos;s specialized in coatings and surfaces for
-            over 23 years.
+          <p className="mt-5 max-w-md text-lg leading-relaxed text-white/70">
+            Epoxy flooring, industrial coatings, commercial painting and
+            restoration from a Minnesota contractor with 25+ years on the job.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
               href="/contact/free-estimate"
-              className="spray-hover-link rounded-full bg-brand-red px-7 py-3 text-sm font-bold text-white"
+              className="spray-hover-link rounded-full bg-brand-red px-8 py-3.5 text-sm font-bold uppercase tracking-wide text-white"
             >
               <SprayHoverFill fill="#ffffff" />
-              <span className="spray-hover-label">Get a Free Estimate</span>
+              <span className="spray-hover-label">Request a Bid</span>
             </Link>
             <Link
-              href="/gallery"
-              className="spray-hover-link rounded-full border-2 border-white px-7 py-3 text-sm font-bold text-white"
+              href="/projects"
+              className="spray-hover-link rounded-full border-2 border-white/80 px-8 py-3.5 text-sm font-bold uppercase tracking-wide text-white"
             >
               <SprayHoverFill />
               <span className="spray-hover-label">See Our Work</span>
             </Link>
           </div>
+          <div className="mt-10 flex max-w-md flex-col items-center gap-4 border-t border-white/10 pt-6 text-center sm:flex-row sm:items-center sm:gap-5 sm:text-left">
+            <ServiceAreaMap className="w-56 shrink-0 sm:w-40" />
+            <div>
+              <p className="text-2xl font-extrabold text-white">Serving 5 states</p>
+              {/* Full state names (not abbreviations) so search engines and AI
+                  answers can match the service area. */}
+              <p className="mt-1.5 text-lg leading-relaxed text-white/70">
+                Headquartered in Buffalo, Minnesota, with crews working across
+                Minnesota, Wisconsin, North Dakota, South Dakota and Iowa.
+              </p>
+            </div>
+          </div>
         </div>
+        <HeroShowcase slides={heroSlides} />
         <SprayFillBand feather={14} />
       </section>
 
-      {/* Audience split */}
-      <section className="mx-auto max-w-7xl px-6 py-16">
-        <div className="grid gap-6 md:grid-cols-2">
-          <Link
-            href="/residential"
-            className="group relative flex h-80 flex-col justify-end overflow-hidden rounded-2xl p-8"
-          >
-            <Image
-              src={findImage("curated-large-log-home-exterior")}
-              alt="Residential log home staining"
-              fill
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/10" />
-            <div className="relative">
-              <h2 className="text-2xl font-bold text-white">Residential</h2>
-              <p className="mt-2 max-w-sm text-sm text-white/80">
-                Garage &amp; basement floors, driveways, patios, exterior
-                painting, and log home restoration.
-              </p>
-              <span className="mt-4 inline-block text-sm font-bold text-brand-green">
-                Explore Residential Services &rarr;
-              </span>
-            </div>
-          </Link>
-
-          <Link
-            href="/commercial"
-            className="group relative flex h-80 flex-col justify-end overflow-hidden rounded-2xl p-8"
-          >
-            <Image
-              src={findImage("curated-gymnasium-basketball-court")}
-              alt="Commercial gymnasium floor coating"
-              fill
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/10" />
-            <div className="relative">
-              <h2 className="text-2xl font-bold text-white">
-                Commercial &amp; Industrial
-              </h2>
-              <p className="mt-2 max-w-sm text-sm text-white/80">
-                Floor coatings for schools, healthcare, food service, and
-                manufacturing, plus commercial painting and murals.
-              </p>
-              <span className="mt-4 inline-block text-sm font-bold text-brand-green">
-                Explore Commercial Services &rarr;
-              </span>
-            </div>
-          </Link>
+      {/* Trusted by */}
+      <section className="overflow-hidden border-b border-brand-line bg-white py-12">
+        <p className="px-6 text-center text-xs font-bold uppercase tracking-widest text-brand-muted">
+          Trusted since 1998 by manufacturers, schools, agencies and brands across the Upper Midwest
+        </p>
+        <div className="mt-8">
+          <LogoMarquee logos={clientLogos} />
         </div>
       </section>
 
-      {/* Services grid */}
+      {/* Services: one section per line */}
+      {SERVICE_SECTIONS.map((s, i) => {
+        // Hero-style split: the slideshow runs full-bleed on one half (edge to
+        // edge, top to bottom); copy sits on the other half, aligned to the
+        // page container. Photo side alternates.
+        const photoRight = i % 2 === 1;
+        const edge = "max(1.5rem, calc((100vw - 80rem) / 2 + 1.5rem))";
+        return (
+          <section key={s.href} className="relative">
+            <SprayFillBand
+              className="spray-band--fill"
+              color={SECTION_TINTS[i]}
+              feather={18}
+              featherBottom={18}
+              direction={i % 2 ? "rtl" : "ltr"}
+            />
+            <div className="relative z-10 grid lg:min-h-[560px] lg:grid-cols-2">
+              <SectionSlideshow
+                offset={i * 900}
+                className={`aspect-[4/3] lg:aspect-auto ${photoRight ? "lg:order-2" : ""}`}
+                slides={SECTION_PHOTOS[s.href].map((id, j) => ({
+                  src: photo(id),
+                  alt: j === 0 ? s.alt : gallery.find((p) => p.id === id).title,
+                }))}
+              />
+              <div
+                className={`flex flex-col justify-center px-6 py-12 sm:px-10 lg:py-20 ${
+                  photoRight ? "lg:pr-14 lg:pl-[var(--edge)]" : "lg:pl-14 lg:pr-[var(--edge)]"
+                }`}
+                style={{ "--edge": edge }}
+              >
+                <p className="text-sm font-bold uppercase tracking-widest text-brand-green-deep">
+                  {String(i + 1).padStart(2, "0")} &middot; {s.label}
+                </p>
+                <h2 className="mt-2 text-3xl font-extrabold text-brand-ink">{s.title}</h2>
+                <p className="mt-4 text-brand-steel-dark">{s.body}</p>
+                <ul className="mt-5 space-y-1.5 text-sm text-brand-ink">
+                  {s.points.map((pt) => (
+                    <li key={pt}>&bull; {pt}</li>
+                  ))}
+                </ul>
+                <Link
+                  href={s.href}
+                  className="spray-hover-link mt-6 self-start rounded-full bg-brand-ink px-6 py-3 text-sm font-bold text-white"
+                >
+                  <SprayHoverFill />
+                  <span className="spray-hover-label">{s.label} &rarr;</span>
+                </Link>
+              </div>
+            </div>
+          </section>
+        );
+      })}
+
+      {/* Industries */}
       <section className="bg-brand-green-soft py-16">
         <div className="mx-auto max-w-7xl px-6">
-          <h2 className="text-center text-3xl font-extrabold text-brand-ink">
-            Everything under one crew
-          </h2>
-          <p className="mx-auto mt-2 max-w-xl text-center text-brand-muted">
-            One team, from surface prep to final finish.
+          <h2 className="text-3xl font-extrabold text-brand-ink">Industries we serve</h2>
+          <p className="mt-2 max-w-xl text-brand-muted">
+            See the work and the names behind it for your kind of facility.
           </p>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              { label: "Floor Coatings", href: "/residential/floor-coatings", desc: "Epoxy, flake, metallic & more" },
-              { label: "Painting & Staining", href: "/residential/painting", desc: "Interior, exterior & log homes" },
-              { label: "Surface Prep", href: "/residential/surface-prep", desc: "Sandblasting & concrete repair" },
-              { label: "Murals", href: "/commercial/murals", desc: "Custom art for any space" },
-            ].map((s) => (
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {industries.map((ind) => (
               <Link
-                key={s.label}
-                href={s.href}
-                className="group rounded-xl border border-brand-line bg-white p-6 transition-shadow hover:shadow-lg"
+                key={ind.slug}
+                href={`/industries/${ind.slug}`}
+                className="group rounded-xl border border-brand-line bg-white p-5 transition-shadow hover:shadow-lg"
               >
-                <div className="mb-3 h-10 w-10 rounded-lg bg-brand-green/15" />
-                <div className="font-bold text-brand-ink group-hover:text-brand-green">
-                  {s.label}
+                <div className="font-bold text-brand-ink group-hover:text-brand-green-dark">
+                  {ind.label} &rarr;
                 </div>
-                <div className="mt-1 text-sm text-brand-muted">{s.desc}</div>
+                <div className="mt-1 text-sm text-brand-muted">
+                  {ind.clients
+                    .flatMap((g) => g.names)
+                    .slice(0, 4)
+                    .map((n) => n.replace(/ \(.*\)$/, ""))
+                    .join(", ")}
+                  &hellip;
+                </div>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Featured gallery strip */}
-      <section className="mx-auto max-w-7xl px-6 py-16">
-        <div className="flex items-end justify-between">
-          <h2 className="text-3xl font-extrabold text-brand-ink">Recent work</h2>
-          <Link href="/gallery" className="text-sm font-bold text-brand-green hover:underline">
-            View full gallery &rarr;
-          </Link>
-        </div>
-        <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
-          {featured.map((p) => (
-            <Link
-              key={p.id}
-              href="/gallery"
-              className="group relative block aspect-square overflow-hidden rounded-lg"
-            >
-              <Image
-                src={p.images[0].file}
-                alt={p.title}
-                fill
-                className="object-cover transition-transform duration-300 group-hover:scale-110"
-              />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
-                <span className="text-xs font-semibold text-white">{p.title}</span>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* Why HPC */}
+      {/* Proof */}
       <section className="bg-brand-charcoal py-16 text-white">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-6 sm:grid-cols-4">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-6 lg:grid-cols-4">
           {[
-            ["23+", "Years in business"],
-            ["2", "MN service areas"],
-            ["1,000+", "Projects completed"],
-            ["100%", "Surface-prep focused"],
+            ["1998", "Coating floors, buildings & tanks since"],
+            ["5 states", "MN, WI, ND, SD & IA"],
+            ["40,000 sq ft", "Largest single floor (Wallace Carlson)"],
+            ["10+ years", "2014 Nicollet Bus Garage floor, still no wear"],
           ].map(([num, label]) => (
             <div key={label} className="text-center">
-              <div className="text-4xl font-extrabold text-brand-green">{num}</div>
+              <div className="text-3xl font-extrabold text-brand-green sm:text-4xl">{num}</div>
               <div className="mt-1 text-sm text-white/70">{label}</div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Mural spotlight */}
-      <section className="mx-auto max-w-7xl px-6 py-16">
-        <div className="grid items-center gap-10 md:grid-cols-2">
-          <div className="relative aspect-video overflow-hidden rounded-2xl">
-            <Image
-              src={findImage("mural-byllesby")}
-              alt="Lake Byllesby Pavilion ceiling mural"
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div>
-            <p className="text-sm font-bold uppercase tracking-widest text-brand-green">
-              Featured Project
-            </p>
-            <h2 className="mt-2 text-3xl font-extrabold text-brand-ink">
-              Lake Byllesby Pavilion Ceiling Mural
-            </h2>
-            <p className="mt-4 text-brand-muted">
-              A 30-foot-high ceiling, hand-stained to trace the local
-              watershed&apos;s rivers and lakes &mdash; designed in
-              collaboration with Locus Architecture. It&apos;s the kind of
-              project that shows what&apos;s possible beyond the standard
-              coat of paint.
-            </p>
+      {/* Featured gallery strip */}
+      <section className="mx-auto max-w-7xl px-6 pb-16">
+        <div className="flex items-end justify-between">
+          <h2 className="text-3xl font-extrabold text-brand-ink">Recent work</h2>
+          <Link href="/projects" className="text-sm font-bold text-brand-green-dark hover:underline">
+            See all projects &rarr;
+          </Link>
+        </div>
+        <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
+          {featured.map((p) => (
             <Link
-              href="/commercial/murals"
-              className="spray-hover-link mt-6 inline-block rounded-full bg-brand-ink px-6 py-3 text-sm font-bold text-white"
+              key={p.id}
+              href={photoHref(p)}
+              className="group relative block aspect-square overflow-hidden rounded-lg"
             >
-              <SprayHoverFill />
-              <span className="spray-hover-label">See the Murals Gallery &rarr;</span>
+              <Image
+                src={p.file}
+                alt={p.title}
+                fill
+                sizes="(min-width: 640px) 25vw, 50vw"
+                className="object-cover transition-transform duration-300 group-hover:scale-110"
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+                <span className="text-xs font-semibold text-white">{p.album || p.title}</span>
+              </div>
             </Link>
-          </div>
+          ))}
         </div>
       </section>
 
@@ -244,11 +294,11 @@ export default function Home() {
         <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 text-center sm:flex-row sm:text-left">
           <div>
             <h2 className="text-2xl font-extrabold text-brand-ink">
-              Ready to start your project?
+              Have a spec, a bid package or a floor that&apos;s failing?
             </h2>
             <p className="mt-1 text-brand-ink/80">
-              Free estimates for residential and commercial work across
-              Minnesota.
+              Commercial bids and free residential estimates across MN, WI,
+              ND, SD &amp; IA. Floors go in year-round.
             </p>
           </div>
           <Link
@@ -256,7 +306,7 @@ export default function Home() {
             className="spray-hover-link shrink-0 rounded-full bg-brand-ink px-7 py-3 text-sm font-bold text-white"
           >
             <SprayHoverFill fill="#ffffff" />
-            <span className="spray-hover-label">Get a Free Estimate</span>
+            <span className="spray-hover-label">Request a Bid or Estimate</span>
           </Link>
         </div>
       </section>

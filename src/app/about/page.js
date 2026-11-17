@@ -4,7 +4,7 @@ import PageHero from "@/components/PageHero";
 export const metadata = { title: "About | High Performance Coatings" };
 
 const ITEMS = [
-  { label: "Our Company", href: "/about/our-company", desc: "23+ years specializing in coatings and surfaces." },
+  { label: "Our Company", href: "/about/our-company", desc: "Coating floors, buildings, tanks and log homes since 1998." },
   { label: "Team & Leadership", href: "/about/team", desc: "The people behind the work." },
   { label: "Certifications & Affiliations", href: "/about/certifications", desc: "EPA RRP, NACE, and our supplier partners." },
   { label: "Testimonials & Reviews", href: "/about/testimonials", desc: "What clients say about working with us." },

@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "High Performance Coatings | Residential & Commercial Coatings, MN",
+  title: "High Performance Coatings | Commercial, Industrial & Residential Coatings, MN",
   description:
-    "Minnesota's choice for residential and commercial coatings — floor coatings, painting & staining, murals, and more. Serving the Twin Cities and Alexandria areas since 1998.",
+    "Commercial, industrial and residential coatings since 1998 — floor coatings, commercial painting, industrial tank lining, and log home restoration. Based in Buffalo, MN, serving MN, WI, ND, SD and IA.",
 };
 
 export default function RootLayout({ children }) {

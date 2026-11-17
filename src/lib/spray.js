@@ -19,8 +19,10 @@ export function sweepDuration(W) {
   return Math.min(2200, 700 + W * 0.7);
 }
 
-export function makeSpray(W, H, { feather = 0, direction = "rtl" } = {}) {
-  const solidH = H - feather;
+// `feather` / `featherBottom`: px of loose overspray above / below the solid
+// region (H includes both).
+export function makeSpray(W, H, { feather = 0, featherBottom = 0, direction = "rtl" } = {}) {
+  const solidH = H - feather - featherBottom;
   const meanArea = 7.6; // mean dot area (px^2) for the size mix below
   const overlap = 8.5; // target dots covering any point inside the box
   const lead = 60; // nozzle starts/ends outside so the edges get full coverage
@@ -28,7 +30,8 @@ export function makeSpray(W, H, { feather = 0, direction = "rtl" } = {}) {
   // dots land all along the nozzle's travel, so scale the count by the
   // travel/box ratio to keep the density inside the box at `overlap`
   const total = Math.round(((W * solidH) / meanArea) * overlap * (span / W));
-  const nFeather = Math.round(W * feather * 0.25);
+  const nFeather = Math.round(W * (feather + featherBottom) * 0.25);
+  const topShare = feather / (feather + featherBottom || 1);
   const n = total + nFeather;
 
   const x = new Float32Array(n);
@@ -53,15 +56,19 @@ export function makeSpray(W, H, { feather = 0, direction = "rtl" } = {}) {
     const overspray = Math.random() < 0.05;
     const px = nozzle + gauss() * (overspray ? 120 : 28);
     let py;
-    const isFeather = feather > 0 && Math.random() < nFeather / n;
+    const isFeather = nFeather > 0 && Math.random() < nFeather / n;
     if (isFeather) {
-      // loose overspray above the solid region: sparse, fading upward
-      py = feather - Math.abs(gauss()) * feather * 0.7;
+      // loose overspray outside the solid region: sparse, fading away from it
+      py =
+        Math.random() < topShare
+          ? feather - Math.abs(gauss()) * feather * 0.7
+          : feather + solidH + Math.abs(gauss()) * featherBottom * 0.7;
     } else {
       // centers may sit a few px outside the box so edge pixels get the
       // same coverage as the middle (the canvas clips them)
-      const edge = feather > 0 ? 0 : 4;
-      py = feather - edge + Math.random() * (solidH + edge + 4);
+      const edgeTop = feather > 0 ? 0 : 4;
+      const edgeBottom = featherBottom > 0 ? 0 : 4;
+      py = feather - edgeTop + Math.random() * (solidH + edgeTop + edgeBottom);
     }
     if (px < -4 || px > W + 4 || py < -4 || py > H + 4) continue;
     x[c] = px;
@@ -71,7 +78,7 @@ export function makeSpray(W, H, { feather = 0, direction = "rtl" } = {}) {
     t[c] = u;
     c++;
   }
-  return { x, y, r, t, count: c, feather, W, H };
+  return { x, y, r, t, count: c, feather, featherBottom, W, H };
 }
 
 // First dot index whose landing time is later than p.

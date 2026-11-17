@@ -45,10 +45,10 @@ export default function Page() {
               <div>
                 <div className="font-bold text-brand-ink">{p.name}</div>
                 <div className="text-sm text-brand-muted">{p.role}</div>
-                <a href={`tel:${p.phone.replace(/-/g, "")}`} className="mt-2 block text-sm text-brand-green hover:underline">
+                <a href={`tel:${p.phone.replace(/-/g, "")}`} className="mt-2 block text-sm text-brand-green-dark hover:underline">
                   {p.phone}
                 </a>
-                <a href={`mailto:${p.email}`} className="block text-sm text-brand-green hover:underline">
+                <a href={`mailto:${p.email}`} className="block text-sm text-brand-green-dark hover:underline">
                   {p.email}
                 </a>
               </div>

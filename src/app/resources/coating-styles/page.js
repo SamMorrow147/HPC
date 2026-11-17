@@ -1,3 +1,4 @@
+import Link from "next/link";
 import PageHero from "@/components/PageHero";
 
 export const metadata = { title: "Coating Styles & Colors | High Performance Coatings" };
@@ -40,9 +41,9 @@ export default function Page() {
         <p className="mt-10 text-sm text-brand-muted">
           Swatches above are representative, not exact — see real finishes
           in person with a sample board at your estimate, or browse the{" "}
-          <a href="/gallery" className="font-semibold text-brand-green hover:underline">
-            project gallery
-          </a>{" "}
+          <Link href="/projects" className="font-semibold text-brand-green hover:underline">
+            our projects
+          </Link>{" "}
           for finished floors.
         </p>
       </section>

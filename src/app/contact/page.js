@@ -13,7 +13,7 @@ export default function Page() {
             <h2 className="text-lg font-bold text-brand-ink">Alexandria Area</h2>
             <p className="mt-1 text-sm text-brand-muted">Mike Wheeler — Owner / Operator</p>
             <div className="mt-4 space-y-2 text-sm">
-              <a href="tel:3208152141" className="block font-semibold text-brand-green hover:underline">320-815-2141</a>
+              <a href="tel:3208152141" className="block font-semibold text-brand-green-dark hover:underline">320-815-2141</a>
               <a href="mailto:Mike@HighPerformanceCoatingsMN.com" className="block text-brand-ink hover:underline">
                 Mike@HighPerformanceCoatingsMN.com
               </a>
@@ -24,7 +24,7 @@ export default function Page() {
             <h2 className="text-lg font-bold text-brand-ink">Minneapolis Area</h2>
             <p className="mt-1 text-sm text-brand-muted">Sam Adams — General Manager</p>
             <div className="mt-4 space-y-2 text-sm">
-              <a href="tel:7632045889" className="block font-semibold text-brand-green hover:underline">763-204-5889</a>
+              <a href="tel:7632045889" className="block font-semibold text-brand-green-dark hover:underline">763-204-5889</a>
               <a href="mailto:Sam@HighPerformanceCoatingsMN.com" className="block text-brand-ink hover:underline">
                 Sam@HighPerformanceCoatingsMN.com
               </a>

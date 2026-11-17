@@ -12,14 +12,14 @@ export default function Page() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {mainNav.map((item) => (
             <div key={item.label}>
-              <Link href={item.href} className="font-bold text-brand-ink hover:text-brand-green">
+              <Link href={item.href} className="font-bold text-brand-ink hover:text-brand-green-dark">
                 {item.label}
               </Link>
               {item.children && (
                 <ul className="mt-3 space-y-2">
                   {item.children.map((c) => (
                     <li key={c.href}>
-                      <Link href={c.href} className="text-sm text-brand-muted hover:text-brand-green">
+                      <Link href={c.href} className="text-sm text-brand-muted hover:text-brand-green-dark">
                         {c.label}
                       </Link>
                     </li>
@@ -33,7 +33,7 @@ export default function Page() {
             <ul className="mt-3 space-y-2">
               {footerNav.legal.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-sm text-brand-muted hover:text-brand-green">
+                  <Link href={l.href} className="text-sm text-brand-muted hover:text-brand-green-dark">
                     {l.label}
                   </Link>
                 </li>

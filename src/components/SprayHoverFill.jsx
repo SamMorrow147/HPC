@@ -14,7 +14,7 @@ import { makeSpray, upperBound, paintDots } from "@/lib/spray";
 // .spray-hover-label so it sits above the canvas and flips color as the
 // paint covers it. The rAF loop only runs while progress is moving.
 
-const BRAND_GREEN = "#79b928";
+const BRAND_GREEN = "#92d51f";
 
 const IN_MS = 800;
 const OUT_MS = 450;

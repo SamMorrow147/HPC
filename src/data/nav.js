@@ -1,33 +1,24 @@
-// Primary nav structure -- mirrors the Proposed Navigation IA from the
-// HPC Sitemap project, but flattened to ONE level of dropdown links per
-// section. Each link here is a category hub page (e.g. "Floor Coatings")
-// that lists its specific sub-services as cards on that page -- the nav
-// itself doesn't enumerate every individual sub-service, so it stays
-// scannable instead of dumping 13+ links into one dropdown.
+// Primary nav structure. Service-led rather than audience-led: the Facebook
+// audit (370 posts, 2020-2026) showed HPC's work has shifted from homeowner
+// garage floors toward commercial, institutional and industrial jobs, so the
+// nav leads with the five service lines and a separate Industries menu
+// (where the depth of the client list shows). Residential vs. commercial
+// lives one level down, on the Floor Coatings hub.
+
+import { industries, services } from "./industries";
 
 export const mainNav = [
   {
-    label: "Residential",
-    href: "/residential",
-    children: [
-      { label: "Floor Coatings", href: "/residential/floor-coatings" },
-      { label: "Painting & Staining", href: "/residential/painting" },
-      { label: "Surface Prep", href: "/residential/surface-prep" },
-      { label: "Cleaning Services", href: "/residential/cleaning" },
-    ],
+    label: "Services",
+    href: "/services",
+    children: services.map(({ label, href }) => ({ label, href })),
   },
   {
-    label: "Commercial & Industrial",
-    href: "/commercial",
-    children: [
-      { label: "Floor Coatings", href: "/commercial/floor-coatings" },
-      { label: "Painting Services", href: "/commercial/painting" },
-      { label: "Surface Prep & Specialty", href: "/commercial/surface-prep" },
-      { label: "Cleaning Services", href: "/commercial/cleaning" },
-      { label: "Murals", href: "/commercial/murals" },
-    ],
+    label: "Industries",
+    href: "/industries",
+    children: industries.map(({ label, slug }) => ({ label, href: `/industries/${slug}` })),
   },
-  { label: "Gallery", href: "/gallery" },
+  { label: "Our Work", href: "/projects" },
   {
     label: "Resources",
     href: "/resources",
@@ -61,73 +52,25 @@ export const mainNav = [
   },
 ];
 
-// Category hub pages: what each nav link above lists once you land on it.
-// Used by the (not-yet-built) hub page templates so the detail that used to
-// live in the nav dropdown lives here instead.
-export const categoryDetails = {
-  "/residential/floor-coatings": ["Garage", "Basement", "Driveway", "Patios & Pool Decks"],
-  "/residential/painting": [
-    "Exterior House Painting",
-    "Interior House Painting",
-    "Log Home Restoration",
-    "Barns & Outbuildings",
-    "Deck Staining",
-  ],
-  "/residential/surface-prep": ["Exterior Masonry", "Concrete Repair", "Sandblasting"],
-  "/commercial/floor-coatings": [
-    "Food & Beverage Facilities",
-    "Educational Facilities",
-    "Hospitals & Healthcare",
-    "Retail & Showrooms",
-    "Warehouses & Distribution",
-    "Animal Facilities",
-    "Manufacturing Plants",
-  ],
-  "/commercial/painting": [
-    "Offices & Corporate Buildings",
-    "Hospitality (Hotels & Restaurants)",
-    "Schools & Churches",
-    "Property Management",
-    "Industrial Facilities",
-    "Steel / Metal Structures",
-  ],
-  "/commercial/surface-prep": ["Sandblasting", "LP / Fuel / Water Tank Coatings"],
-  "/resources/coating-styles": [
-    "Flake",
-    "Metallic",
-    "Quartz",
-    "Mica",
-    "Wood Look",
-    "Solid Color",
-    "Custom Flake",
-  ],
-};
-
 export const footerNav = {
   columns: [
     {
-      title: "Residential",
+      title: "Services",
       links: [
-        { label: "Floor Coatings", href: "/residential/floor-coatings" },
-        { label: "Painting & Staining", href: "/residential/painting" },
-        { label: "Surface Prep", href: "/residential/surface-prep" },
-        { label: "Cleaning Services", href: "/residential/cleaning" },
+        ...services.map(({ label, href }) => ({ label, href })),
+        { label: "Murals", href: "/specialty/murals" },
       ],
     },
     {
-      title: "Commercial & Industrial",
-      links: [
-        { label: "Floor Coatings", href: "/commercial/floor-coatings" },
-        { label: "Painting Services", href: "/commercial/painting" },
-        { label: "Murals", href: "/commercial/murals" },
-        { label: "Tank Coatings", href: "/commercial/surface-prep" },
-      ],
+      title: "Industries",
+      links: industries.map(({ label, slug }) => ({ label, href: `/industries/${slug}` })),
     },
     {
       title: "Company",
       links: [
-        { label: "Gallery", href: "/gallery" },
+        { label: "Our Work", href: "/projects" },
         { label: "About", href: "/about/our-company" },
+        { label: "Careers", href: "/about/careers" },
         { label: "Resources", href: "/resources" },
         { label: "Contact", href: "/contact" },
       ],

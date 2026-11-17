@@ -40,7 +40,7 @@ export default function Page() {
           <h2 className="text-lg font-bold text-brand-ink">Contact</h2>
           <p className="mt-2">
             Questions about this policy can be directed to{" "}
-            <a href="mailto:Sam@HighPerformanceCoatingsMN.com" className="font-semibold text-brand-green hover:underline">
+            <a href="mailto:Sam@HighPerformanceCoatingsMN.com" className="font-semibold text-brand-green-dark hover:underline">
               Sam@HighPerformanceCoatingsMN.com
             </a>
             .

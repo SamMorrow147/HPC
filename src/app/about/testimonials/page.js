@@ -14,7 +14,7 @@ export default function Page() {
         <div className="grid gap-5 sm:grid-cols-2">
           {[1, 2, 3, 4].map((i) => (
             <div key={i} className="rounded-xl border border-dashed border-brand-line p-6">
-              <div className="flex gap-1 text-brand-green">
+              <div className="flex gap-1 text-brand-green-dark">
                 {Array.from({ length: 5 }).map((_, j) => (
                   <svg key={j} viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4">
                     <path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.2L10 14.9 4.4 18l1.4-6.2L1 7.5l6.4-.6L10 1z" />
@@ -34,7 +34,7 @@ export default function Page() {
         <p className="mt-8 text-sm text-brand-muted">
           Have a project with us? We&apos;d love to feature your review here
           — reach out through the{" "}
-          <a href="/contact" className="font-semibold text-brand-green hover:underline">
+          <a href="/contact" className="font-semibold text-brand-green-dark hover:underline">
             Contact
           </a>{" "}
           page.

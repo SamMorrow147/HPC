@@ -49,8 +49,8 @@ export default function Page() {
 
         <p className="mt-12 text-sm text-brand-muted">
           EPA RRP certification details echo the{" "}
-          <Link href="/residential/painting" className="font-semibold text-brand-green hover:underline">
-            Painting &amp; Staining
+          <Link href="/log-home-restoration" className="font-semibold text-brand-green-dark hover:underline">
+            Log Home &amp; Wood Restoration
           </Link>{" "}
           page for projects involving pre-1978 homes.
         </p>

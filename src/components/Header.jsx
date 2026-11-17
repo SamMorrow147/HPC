@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState, useRef } from "react";
 import { mainNav } from "@/data/nav";
@@ -11,7 +12,7 @@ function DesktopMegaMenu({ item, open, onEnter, onLeave }) {
       <Link
         href={item.href}
         className={`flex items-center gap-1 px-3 py-2 text-sm font-semibold uppercase tracking-wide transition-colors ${
-          open ? "text-brand-green" : "text-brand-ink hover:text-brand-green"
+          open ? "text-brand-green" : "text-white hover:text-brand-green"
         }`}
       >
         {item.label}
@@ -50,9 +51,9 @@ function MobileAccordionItem({ item }) {
   const [open, setOpen] = useState(false);
   const hasMenu = !!item.children?.length;
   return (
-    <div className="border-b border-brand-line">
+    <div className="border-b border-white/10">
       <button
-        className="flex w-full items-center justify-between py-3 text-left text-sm font-semibold uppercase tracking-wide text-brand-ink"
+        className="flex w-full items-center justify-between py-3 text-left text-sm font-semibold uppercase tracking-wide text-white"
         onClick={() => setOpen((o) => !o)}
       >
         <Link href={item.href} onClick={(e) => e.stopPropagation()}>
@@ -76,7 +77,7 @@ function MobileAccordionItem({ item }) {
         <ul className="space-y-2 pb-4 pl-3">
           {item.children.map((link) => (
             <li key={link.href}>
-              <Link href={link.href} className="text-sm text-brand-ink">
+              <Link href={link.href} className="text-sm text-white/80 hover:text-brand-green">
                 {link.label}
               </Link>
             </li>
@@ -101,22 +102,20 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-brand-line bg-white">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-brand-carbon">
       {/* top utility bar */}
       <div className="hidden bg-brand-charcoal text-white md:block">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-1.5 text-xs">
-          <span>Minneapolis &amp; Alexandria, MN &middot; Residential &amp; Commercial Coatings</span>
+          <span>Based in Buffalo, MN &middot; Commercial, Industrial &amp; Residential Coatings across MN, WI, ND, SD &amp; IA</span>
           <a href="tel:7636204121" className="font-semibold hover:text-brand-green">
             763-204-5889
           </a>
         </div>
       </div>
 
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="text-xl font-extrabold tracking-tight text-brand-ink">
-            HPC<span className="text-brand-green"> High Performance Coatings</span>
-          </span>
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2">
+        <Link href="/" className="flex items-center gap-2" aria-label="High Performance Coatings home">
+          <Image src="/logos/hpc-logo-nav.png" alt="HPC High Performance Coatings" width={800} height={395} priority className="h-12 w-auto md:h-14" />
         </Link>
 
         {/* desktop nav */}
@@ -140,7 +139,7 @@ export default function Header() {
             Free Estimate
           </Link>
           <button
-            className="inline-flex h-9 w-9 items-center justify-center rounded border border-brand-line lg:hidden"
+            className="inline-flex h-9 w-9 items-center justify-center rounded border border-white/20 text-white lg:hidden"
             onClick={() => setMobileOpen((o) => !o)}
             aria-label="Toggle menu"
           >
@@ -157,7 +156,7 @@ export default function Header() {
 
       {/* mobile nav */}
       {mobileOpen && (
-        <div className="max-h-[75vh] overflow-y-auto border-t border-brand-line px-6 lg:hidden">
+        <div className="max-h-[75vh] overflow-y-auto border-t border-white/10 bg-brand-carbon px-6 lg:hidden">
           {mainNav.map((item) => (
             <MobileAccordionItem key={item.label} item={item} />
           ))}

@@ -1,15 +1,24 @@
 @import "tailwindcss";
 
 :root {
-  --color-brand-green: #79b928;
-  --color-brand-green-dark: #5c9220;
-  --color-brand-green-soft: #eef6e2;
-  --color-brand-ink: #1a1d1f;
-  --color-brand-charcoal: #1c1f22;
-  --color-brand-orange: #f0701f;
+  /* HPC brand palette. Core: HPC Green + Carbon. Supporting: Charcoal,
+     Concrete, Soft White. Secondary: Steel, Oxide. */
+  --color-brand-green: #92d51f;      /* HPC Green -- fills/accents; on dark only for text */
+  --color-brand-green-dark: #557c10; /* HPC Green shaded for text on light (AA on white) */
+  --color-brand-green-soft: #eef7dd; /* HPC Green tint */
+  --color-brand-green-deep: #3f5d0b; /* small green text on tinted bands */
+  --color-brand-carbon: #11130f;
+  --color-brand-ink: var(--color-brand-carbon);
+  --color-brand-charcoal: #20231e;
+  --color-brand-concrete: #dddcd5;
+  --color-brand-soft-white: #f6f6f1;
+  --color-brand-steel: #6c726a;
+  --color-brand-steel-dark: #4a5047;  /* Steel shaded: body text on tinted bands */
+  --color-brand-oxide: #b36a3c;
+  --color-brand-orange: var(--color-brand-oxide);
   --color-brand-red: #d62839;
-  --color-brand-muted: #6b7280;
-  --color-brand-line: #e3e7ea;
+  --color-brand-muted: var(--color-brand-steel);
+  --color-brand-line: var(--color-brand-concrete);
   --background: #ffffff;
   --foreground: var(--color-brand-ink);
 }
@@ -18,8 +27,15 @@
   --color-brand-green: var(--color-brand-green);
   --color-brand-green-dark: var(--color-brand-green-dark);
   --color-brand-green-soft: var(--color-brand-green-soft);
+  --color-brand-green-deep: var(--color-brand-green-deep);
+  --color-brand-carbon: var(--color-brand-carbon);
   --color-brand-ink: var(--color-brand-ink);
   --color-brand-charcoal: var(--color-brand-charcoal);
+  --color-brand-concrete: var(--color-brand-concrete);
+  --color-brand-soft-white: var(--color-brand-soft-white);
+  --color-brand-steel: var(--color-brand-steel);
+  --color-brand-steel-dark: var(--color-brand-steel-dark);
+  --color-brand-oxide: var(--color-brand-oxide);
   --color-brand-orange: var(--color-brand-orange);
   --color-brand-red: var(--color-brand-red);
   --color-brand-muted: var(--color-brand-muted);
@@ -95,4 +111,102 @@ body {
 .spray-hover-link[data-spray-armed]:hover .spray-hover-label,
 .spray-hover-link[data-spray-armed]:focus-visible .spray-hover-label {
   color: var(--color-brand-ink);
+}
+
+/* Hero service-area map (ServiceAreaMap.jsx). Minnesota is solid HPC Green;
+   neighbours are translucent. Once [data-in] lands, Minnesota pops in and
+   each neighbour slides in toward it, staggered by --i. Hidden only while
+   JS has armed it, so no-JS and reduced motion just show the map. */
+.service-map {
+  overflow: visible;
+}
+.service-map-state path {
+  fill: var(--color-brand-green);
+  fill-opacity: 0.2;
+  stroke: var(--color-brand-green);
+  stroke-opacity: 0.55;
+  stroke-width: 1;
+  stroke-linejoin: round;
+}
+.service-map-state.is-home path {
+  fill-opacity: 1;
+  stroke-opacity: 1;
+}
+.service-map-state text {
+  fill: rgb(255 255 255 / 0.75);
+  font-size: 21px; /* map renders ~0.5x in the hero, so ~10px on screen */
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+.service-map-state.is-home text {
+  fill: var(--color-brand-carbon);
+}
+.service-map-pin circle {
+  fill: var(--color-brand-carbon);
+  stroke: #ffffff;
+  stroke-width: 1.5;
+}
+.service-map-pin .service-map-pulse {
+  fill: none;
+  stroke: var(--color-brand-carbon);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.service-map-state,
+.service-map-pin {
+  transition:
+    transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) calc(0.35s + var(--i, 0) * 0.14s),
+    opacity 0.7s ease calc(0.35s + var(--i, 0) * 0.14s);
+}
+.service-map-state.is-home {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition-delay: 0s;
+}
+.service-map-pin {
+  transition-delay: 0.6s;
+}
+.service-map[data-armed]:not([data-in]) .service-map-state {
+  opacity: 0;
+  transform: translate(var(--dx), var(--dy));
+}
+.service-map[data-armed]:not([data-in]) .service-map-state.is-home {
+  transform: scale(0.85);
+}
+.service-map[data-armed]:not([data-in]) .service-map-pin {
+  opacity: 0;
+}
+.service-map[data-in] .service-map-pulse {
+  animation: service-map-pulse 2.4s ease-out 1.6s infinite;
+}
+@keyframes service-map-pulse {
+  from { transform: scale(1); opacity: 0.9; }
+  to { transform: scale(3); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .service-map-state,
+  .service-map-pin {
+    transition: none;
+  }
+  .service-map[data-in] .service-map-pulse {
+    animation: none;
+  }
+}
+
+/* Client logo marquee: a horizontally scrollable strip (scrollbar hidden),
+   faded at the edges. Motion and looping live in LogoMarquee.jsx. */
+.logo-marquee {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  cursor: grab;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+.logo-marquee::-webkit-scrollbar {
+  display: none;
+}
+.logo-marquee[data-dragging] {
+  cursor: grabbing;
+  user-select: none;
 }

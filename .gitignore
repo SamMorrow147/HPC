@@ -31,3 +31,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# raw J&C Facebook export (source for scripts/build-gallery.py, kept out of git)
+/jc-coatings-facebook-photos/

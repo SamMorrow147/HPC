@@ -10,8 +10,9 @@ export default function Footer() {
           <div className="col-span-2">
             <Image src="/logos/hpc-logo.png" alt="High Performance Coatings" width={160} height={96} className="h-20 w-auto" />
             <p className="mt-3 max-w-xs text-sm text-white/60">
-              Minnesota&apos;s choice for residential and commercial coatings &mdash;
-              floor coatings, painting &amp; staining, and murals since 1998.
+              Commercial, industrial and residential coatings since 1998:
+              floors, commercial painting, tank lining and log home
+              restoration across MN, WI, ND, SD &amp; IA.
             </p>
             <div className="mt-5 space-y-1 text-sm text-white/80">
               <div>
