@@ -14,7 +14,10 @@ export default function SectionSlideshow({ slides, offset = 0, className = "" })
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
   const [inView, setInView] = useState(false);
+  const [timerKey, setTimerKey] = useState(0);
   const rootRef = useRef(null);
+  const swipe = useRef(null);
+  const manual = useRef(false);
   const count = slides.length;
   const go = (i) => setActive((i + count) % count);
 
@@ -30,24 +33,43 @@ export default function SectionSlideshow({ slides, offset = 0, className = "" })
     if (!inView || paused || count < 2) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     let t;
+    const delay = manual.current ? INTERVAL_MS : INTERVAL_MS + offset;
     const first = setTimeout(() => {
       setActive((i) => (i + 1) % count);
       t = setInterval(() => setActive((i) => (i + 1) % count), INTERVAL_MS);
-    }, INTERVAL_MS + offset);
+    }, delay);
     return () => {
       clearTimeout(first);
       clearInterval(t);
     };
-  }, [inView, paused, count, offset]);
+  }, [inView, paused, count, offset, timerKey]);
 
   return (
     <div
       ref={rootRef}
-      className={`group relative overflow-hidden ${className}`}
+      className={`group relative touch-pan-y overflow-hidden ${className}`}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocus={() => setPaused(true)}
       onBlur={() => setPaused(false)}
+      onPointerDown={(e) => {
+        if (count < 2) return;
+        swipe.current = { x: e.clientX, y: e.clientY };
+      }}
+      onPointerUp={(e) => {
+        const start = swipe.current;
+        swipe.current = null;
+        if (!start) return;
+        const dx = e.clientX - start.x;
+        const dy = e.clientY - start.y;
+        if (Math.abs(dx) < 48 || Math.abs(dx) < Math.abs(dy)) return;
+        manual.current = true;
+        setTimerKey((k) => k + 1);
+        go(active + (dx < 0 ? 1 : -1));
+      }}
+      onPointerCancel={() => {
+        swipe.current = null;
+      }}
       aria-roledescription="carousel"
     >
       {slides.map((s, i) => (

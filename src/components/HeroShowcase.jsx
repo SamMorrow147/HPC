@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // Right-hand photo panel of the homepage hero. One real job per service
 // line; hovering (or focusing) a tab swaps the photo, otherwise it cycles.
@@ -11,6 +11,7 @@ const ROTATE_MS = 6000;
 export default function HeroShowcase({ slides }) {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
+  const swipe = useRef(null);
 
   useEffect(() => {
     if (paused) return;
@@ -21,9 +22,25 @@ export default function HeroShowcase({ slides }) {
 
   return (
     <div
-      className="relative order-first h-full min-h-[420px] overflow-hidden bg-black lg:order-none"
+      className="relative order-first h-full min-h-[420px] touch-pan-y overflow-hidden bg-black lg:order-none"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
+      onPointerDown={(e) => {
+        swipe.current = { x: e.clientX, y: e.clientY };
+      }}
+      onPointerUp={(e) => {
+        const start = swipe.current;
+        swipe.current = null;
+        if (!start) return;
+        const dx = e.clientX - start.x;
+        const dy = e.clientY - start.y;
+        if (Math.abs(dx) < 48 || Math.abs(dx) < Math.abs(dy)) return;
+        setPaused(true);
+        setActive((i) => (i + (dx < 0 ? 1 : -1) + slides.length) % slides.length);
+      }}
+      onPointerCancel={() => {
+        swipe.current = null;
+      }}
     >
       {slides.map((s, i) => (
         <Image
@@ -57,6 +74,16 @@ export default function HeroShowcase({ slides }) {
               href={s.href}
               onMouseEnter={() => setActive(i)}
               onFocus={() => setActive(i)}
+              onClick={(e) => {
+                // Phones have no hover, so a tap both highlighted the tab and
+                // followed the link. First tap only swaps the photo and holds
+                // it; a second tap on the one already showing opens the page.
+                const hoverCapable = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+                if (hoverCapable || i === active) return;
+                e.preventDefault();
+                setActive(i);
+                setPaused(true);
+              }}
               className={`group block border-t-4 px-4 py-4 transition-colors ${
                 i === active
                   ? "border-brand-green bg-black/70"
