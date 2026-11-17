@@ -13,9 +13,8 @@ export default function Page() {
       <section className="mx-auto max-w-3xl px-6 py-14">
         <div className="space-y-5 text-brand-muted">
           <p>
-            High Performance Coatings is growing, and we&apos;re looking for
-            people who care about doing the job right — from surface prep
-            through final finish. Experience with epoxy flooring, painting,
+            We hire people who take care with the whole job, from surface
+            prep through the final coat. Experience with epoxy flooring, painting,
             or general construction is a plus, but a strong work ethic and
             attention to detail matter most.
           </p>

@@ -34,3 +34,5 @@ next-env.d.ts
 
 # raw J&C Facebook export (source for scripts/build-gallery.py, kept out of git)
 /jc-coatings-facebook-photos/
+# HPC Facebook posts downloaded after the original export (2026-09-30 on), same purpose
+/hpc-facebook-photos/

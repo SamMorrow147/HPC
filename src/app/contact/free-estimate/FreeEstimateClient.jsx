@@ -4,11 +4,13 @@ import { useState } from "react";
 import PageHero from "@/components/PageHero";
 
 const SERVICE_OPTIONS = [
-  "Residential Floor Coatings",
-  "Residential Painting & Staining",
-  "Commercial Floor Coatings",
+  "Floor Coatings (Residential)",
+  "Floor Coatings (Commercial / Industrial)",
   "Commercial Painting",
-  "Murals",
+  "Industrial Coatings & Tank Lining",
+  "Log Home & Wood Restoration",
+  "House Painting & Staining",
+  "Specialty (Wallcovering, Concrete, Murals)",
   "Other / Not sure",
 ];
 

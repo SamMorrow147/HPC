@@ -10,7 +10,7 @@ export default function Page() {
     <>
       <PageHero
         kicker="Services"
-        title="Five service lines, one coatings crew"
+        title="What we do"
         intro="Floors, commercial painting, industrial coatings, log home restoration and specialty finishes for plants, schools, public buildings, businesses and lake homes."
       />
       <section className="mx-auto max-w-7xl px-6 py-14">

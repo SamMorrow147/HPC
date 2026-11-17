@@ -7,12 +7,43 @@
 // add those as they come in (see docs/client-logos-todo.md).
 
 export const projects = {
+  "wallace-carlson-printing-plymouth": {
+    featured: true,
+    summary: "A former Aljon Tools building repainted inside and out in Wallace Carlson's colors, with 40,000 sq ft of new epoxy floor.",
+    story: [
+      "Wallace Carlson Printing's new building in Plymouth is the former Aljon Tools building. It had to be cleaned and repainted inside and out to match Wallace Carlson's brand colors.",
+      "Outside, we painted the block walls black with a red band, working the upper walls from a scissor lift. Inside, we painted the walls, ceiling and steel columns, ground the cracked slab, and installed 40,000 sq ft of epoxy shop floor with a urethane topcoat.",
+    ],
+    scope: ["Exterior repaint in brand colors", "Interior walls, ceiling & columns", "Slab grinding & crack prep", "40,000 sq ft epoxy floor", "Urethane topcoat"],
+  },
+  "orono-garage-flake-floor": {
+    summary: "An Orono garage taken from stained, patched concrete to a full flake floor, with the ceiling and walls redone.",
+    story: [
+      "This Orono garage needed more than a floor. We ground and shot-blasted the slab, patched it, and cut and reshaped the floor drain.",
+      "Overhead, we scraped off the popcorn ceiling, added a new knockdown texture and painted it. Then we patched and repainted the walls and installed a full flake floor.",
+    ],
+    scope: ["Grinding & shot blasting", "Slab patching", "Drain cutting & shaping", "Popcorn removal & knockdown ceiling", "Wall patching & repaint", "Full flake floor"],
+  },
+  "cedar-lake-log-home-refresh": {
+    summary: "A clean and refresh coat on a Cedar Lake log home and its log-sided garage.",
+    story: [
+      "This was maintenance, not a full restoration. We cleaned the logs on this home on Cedar Lake in Annandale and on its log-sided garage, then put on a refresh coat of stain.",
+    ],
+    scope: ["Log cleaning", "Refresh coat", "Log-sided garage"],
+  },
+  "washington-ballpark-light-towers": {
+    summary: "Painting the existing steel light towers at Washington Ballpark in Detroit Lakes.",
+    story: [
+      "We painted the existing light towers at Washington Ballpark in Detroit Lakes, working the steel lattice from a boom lift and from the towers themselves.",
+    ],
+    scope: ["Steel light towers", "Boom lift access"],
+  },
   "uw-river-falls-science-innovation-center": {
     featured: true,
     summary: "Interior painting and science-themed wall graphics through a new university science building.",
     story: [
-      "UW-River Falls' Science and Technology Innovation Center is a working building full of labs, lounges and study space, and every one of those rooms needed a finish that could take years of student traffic.",
-      "Our crews painted corridors, research labs, faculty and student lounges and the atrium stair, then added large-format science graphics (a DNA strand, a brain, neurons and molecule patterns) that give each wing its own identity.",
+      "We painted the corridors, research labs, faculty and student lounges and the atrium stair in UW-River Falls' Science and Technology Innovation Center.",
+      "Each wing also got its own large-format science graphic: a DNA strand, a brain, neurons and molecule patterns.",
     ],
     scope: ["Corridor & lab painting", "Lounges and atrium stair", "Accent walls", "Science wall graphics"],
   },
@@ -20,8 +51,8 @@ export const projects = {
     featured: true,
     summary: "Gym, hallway and commons painting plus school-spirit graphics for the GFW Firebirds.",
     story: [
-      "A school's colors should be the first thing you see walking in. At GFW, we painted the gym, auditorium, weight room, classrooms, commons and hallways, then carried the Firebirds brand through the building.",
-      "The centerpiece is a hand-painted Firebirds logo on the gym wall, backed up by \"Home of the Firebirds\" and \"This Is Firebird Territory\" graphics in the corridors and gym.",
+      "At GFW we painted the gym, auditorium, weight room, classrooms, commons and hallways in the school's colors.",
+      "We also hand-painted the Firebirds logo on the gym wall and added \"Home of the Firebirds\" and \"This Is Firebird Territory\" graphics in the gym and corridors.",
     ],
     scope: ["Gymnasium & auditorium", "Hallways, commons & classrooms", "Weight room", "Painted logos & wall graphics"],
   },
@@ -30,7 +61,7 @@ export const projects = {
     summary: "A 30-foot-high pavilion ceiling hand-stained with the lines of the local watershed.",
     story: [
       "Developed with Locus Architecture, the Lake Byllesby Pavilion ceiling traces the rivers and lakes of the surrounding watershed across the wood deck overhead.",
-      "The design was laid out with plotter-cut stencils and applied in diluted wood stain, so the grain still reads through the artwork. It's the kind of job that takes a coatings crew's control, not just a painter's brush.",
+      "The design was laid out with plotter-cut stencils and applied in diluted wood stain, so the grain shows through. The crew worked the 30-foot ceiling from lifts.",
     ],
     scope: ["Stencil layout", "Diluted wood-stain application", "30 ft ceiling work from lifts"],
   },
@@ -38,8 +69,8 @@ export const projects = {
     featured: true,
     summary: "Exterior painting and stained cedar soffits for a park ballpark grandstand.",
     story: [
-      "JB Belzer Stadium at Grand Prairie Park needed its grandstand and pavilion to look as good as the field.",
-      "We painted the blue siding and steel canopy and stained the cedar soffits and canopy ceilings, giving the warm wood a finish that stands up to sun and weather season after season.",
+      "At JB Belzer Stadium in Grand Prairie Park, we painted the blue siding and steel canopy on the grandstand and pavilion.",
+      "We also stained the cedar soffits and canopy ceilings, which face sun and weather all season.",
     ],
     scope: ["Exterior siding & steel canopy", "Cedar soffit & ceiling stain", "Pavilion exterior"],
   },
@@ -47,8 +78,8 @@ export const projects = {
     featured: true,
     summary: "Interior and exterior repaint of a boat dealership, plus a metallic epoxy hallway.",
     story: [
-      "Minnesota Inboard's showroom has to sell boats, so the building had to look sharp inside and out.",
-      "We painted the showroom ceiling and mezzanine, offices and conference room in a dark, modern palette, the service bay ceiling and the exterior, and put down a metallic epoxy floor in the office hallway.",
+      "Minnesota Inboard is a boat dealership. We painted the showroom ceiling and mezzanine, offices and conference room in a dark palette, then the service bay ceiling and the building exterior.",
+      "In the office hallway we put down a metallic epoxy floor.",
     ],
     scope: ["Showroom & mezzanine", "Offices & conference room", "Service bay ceiling", "Exterior repaint", "Metallic epoxy hallway"],
   },
@@ -56,8 +87,8 @@ export const projects = {
     featured: true,
     summary: "A full-scribe log home stripped, repaired and restained from a lift.",
     story: [
-      "Full-scribe log homes are beautiful and unforgiving: every log end and gable is exposed to the weather, and a failing finish shows fast.",
-      "Our crew worked the gables from a lift, prepped the logs and laid on a warm golden stain system across the whole house and porch.",
+      "On a full-scribe log home every log end and gable is exposed to the weather, so a failing finish shows quickly.",
+      "Our crew worked the gables from a lift, prepped the logs and applied a golden stain across the whole house, porch and railings.",
     ],
     scope: ["Log prep & washing", "Gable work from lift", "Full exterior restain", "Porch & railings"],
   },
@@ -65,7 +96,7 @@ export const projects = {
     featured: true,
     summary: "A weathered chalet log home brought back with a full restain, before and after.",
     story: [
-      "The before shots tell the story: sun-faded, uneven logs and trim that had gone gray.",
+      "Before we started, the logs were sun-faded and uneven and the trim had gone gray.",
       "We prepped the logs, restained the walls, balconies, railings and window trim, and finished the garage to match.",
     ],
     scope: ["Log prep", "Full exterior restain", "Balconies & railings", "Window & door trim", "Matching garage"],
@@ -74,8 +105,8 @@ export const projects = {
     featured: true,
     summary: "A metallic epoxy floor from crack repair to the final marbled coat.",
     story: [
-      "Metallic epoxy only looks effortless. This job shows every step: floor prep and crack repair, a gray primer and base coat, then the metallic coat worked by hand to get the marbled, liquid look.",
-      "The finished floor is seamless, glossy and completely custom: no two metallic floors come out the same.",
+      "The photos from this job show each step of a metallic epoxy floor: prep and crack repair, a gray primer and base coat, then the metallic coat worked by hand into a marbled pattern.",
+      "The finished floor is seamless and glossy. Because the metallic coat is worked by hand, no two floors come out the same.",
     ],
     scope: ["Floor prep & crack filling", "Primer & base coat", "Metallic epoxy application", "Hallway cut-in"],
   },
@@ -83,7 +114,7 @@ export const projects = {
     featured: true,
     summary: "A locker room and restroom flake floor with integral epoxy cove base.",
     story: [
-      "Locker rooms are the hardest floors in a school: constant water, cleaning chemicals and cleats.",
+      "Locker room floors get constant water, cleaning chemicals and cleats.",
       "We prepped the slab, installed epoxy cove base up the wall so there's no seam for water to get into, then broadcast a red-and-black flake system and sealed it to a glossy, slip-resistant finish.",
     ],
     scope: ["Slab prep", "Epoxy cove base", "Red & black flake broadcast", "Clear topcoat"],
@@ -92,8 +123,7 @@ export const projects = {
     featured: true,
     summary: "Coating a wind turbine tower from a boom lift.",
     story: [
-      "Industrial work happens where the asset is, and here that meant a boom lift at the base of a wind turbine tower.",
-      "Our crew recoated the tower and nacelle area, using protective coatings meant to hold up to UV, wind and freeze-thaw.",
+      "Working from a boom lift, our crew recoated a wind turbine tower and the nacelle area with protective coatings made for UV, wind and freeze-thaw.",
     ],
     scope: ["Boom lift access", "Tower recoat", "Nacelle area coating"],
   },
@@ -114,14 +144,14 @@ export const projects = {
   "white-storefront-exterior-repaint": {
     summary: "A Pottery Barn storefront facade repainted, with windows masked and protected.",
     story: [
-      "Retail facades are part of the brand. We masked the glass and repainted the Pottery Barn storefront facade.",
+      "We masked the glass and repainted the Pottery Barn storefront facade.",
     ],
     scope: ["Window masking", "Facade repaint"],
   },
   "river-valley-church": {
     summary: "Painting through a church's lobby, cafe, kids' wing and classrooms, plus a stained concrete chapel floor.",
     story: [
-      "River Valley Church wanted spaces that feel welcoming for every age. We painted the lobby, cafe, classrooms and a colorful kids' wing, and finished the chapel with a stained concrete floor.",
+      "We painted River Valley Church's lobby, cafe, classrooms and kids' wing, and stained the concrete floor in the chapel.",
     ],
     scope: ["Lobby & cafe", "Kids' wing & classrooms", "Stained concrete chapel floor"],
   },
@@ -129,35 +159,35 @@ export const projects = {
     summary: "A dental clinic finished from bare drywall: painted rooms, a navy panel wall and shop-stained ceiling beams.",
     story: [
       "The before shots show where this started: raw drywall halls and a vaulted room with unfinished beams.",
-      "We stained the ceiling beams in our shop so they arrived ready to hang, masked and sprayed a navy paneled accent wall, and painted the reception lobby, waiting room, hallways and operatories, clean, quiet work in a space built for patients.",
+      "We stained the ceiling beams in our shop so they arrived ready to hang, masked and sprayed a navy paneled accent wall, and painted the reception lobby, waiting room, hallways and operatories.",
     ],
     scope: ["Drywall to finish paint", "Navy panel accent wall", "Shop-stained ceiling beams", "Lobby, halls & operatories"],
   },
   "new-rec-building-interior": {
     summary: "Interior painting through a new recreation center, from the gym ceiling to the running track.",
     story: [
-      "A new recreation building means a lot of square footage and a lot of height. We painted the gymnasium walls and exposed ceiling, the walls along the elevated running track, stairwells, corridors and multipurpose rooms, with teal and blue accent walls to tie it together.",
+      "We painted the gymnasium walls and exposed ceiling, the walls along the elevated running track, stairwells, corridors and multipurpose rooms, with teal and blue accent walls to tie it together.",
     ],
     scope: ["Gym walls & exposed ceiling", "Running track level", "Stairwells & corridors", "Accent walls", "Flake floor"],
   },
   "widseth-office-exterior": {
     summary: "Exterior steel and trim painting for a Widseth office.",
     story: [
-      "We painted the exterior steel at this Widseth office: railings, handrails, doors and frames, garage bay trim and bollards, in a crisp blue that holds up outdoors.",
+      "We painted the exterior steel at this Widseth office: railings, handrails, doors and frames, garage bay trim and bollards, in blue.",
     ],
     scope: ["Railings & handrails", "Doors & frames", "Bollards", "Garage bay trim"],
   },
   "golden-log-sided-cabin-garage": {
     summary: "A lakeside log-sided cabin and detached garage restained to match.",
     story: [
-      "Log siding takes the same beating as full logs. We restained the cabin's gables, soffits, walls and entry steps, then the detached garage so the whole property matches.",
+      "Log siding weathers the same way full logs do. We restained the cabin's gables, soffits, walls and entry steps, then the detached garage so the whole property matches.",
     ],
     scope: ["Cabin restain", "Gables & soffits", "Entry steps", "Detached garage"],
   },
   "red-stained-log-home-and-garage": {
     summary: "A log home and its log-sided garage restained in a rich red tone.",
     story: [
-      "This log home went with a deep red stain. We did every elevation, the stone-based gables, the wood walkway steps and the log-sided garage.",
+      "The owners chose a deep red stain. We did every elevation, the stone-based gables, the wood walkway steps and the log-sided garage.",
     ],
     scope: ["All elevations", "Gables", "Walkway steps", "Log-sided garage"],
   },
@@ -192,14 +222,14 @@ export const projects = {
   "red-stained-log-sided-cabin-shed": {
     summary: "A red log-sided cabin, deck and barn-style shed restained together.",
     story: [
-      "We restained the cabin, its deck and gable, and the barn-style storage shed so the whole place reads as one.",
+      "We restained the cabin, its deck and gable, and the barn-style storage shed in the same red.",
     ],
     scope: ["Cabin & gable", "Deck", "Storage shed"],
   },
   "lake-home-cedar-porch": {
     summary: "Stained cedar timbers, posts and porch ceilings on a lake home.",
     story: [
-      "The cedar timber porch is the best seat at this lake home. We stained the posts, beams and tongue-and-groove ceilings at the porch, patio and front entry.",
+      "We stained the cedar posts, beams and tongue-and-groove ceilings at the porch, patio and front entry.",
     ],
     scope: ["Timber posts & beams", "Porch ceilings", "Front entry"],
   },
@@ -283,7 +313,7 @@ export const projects = {
   "log-home-strip-and-stain": {
     summary: "Stripping and washing a log home's exterior before restaining.",
     story: [
-      "Most of a log home restoration is the part nobody sees afterward. Here the crew stripped the old finish and pressure-washed the logs and upper walls down to clean wood so the new stain can soak in.",
+      "This is the prep stage of a log home restoration. The crew stripped the old finish and pressure-washed the logs and upper walls down to clean wood so the new stain can soak in.",
     ],
     scope: ["Finish stripping", "Pressure washing", "Upper wall access"],
   },
@@ -395,7 +425,7 @@ export const projects = {
     summary: "Hallways, commons, media center and Bison-pride walls painted through our hometown middle school.",
     story: [
       "HPC is based in Buffalo, so Buffalo Community Middle School is close to home.",
-      "We painted the hallways and purple-and-white locker halls, the commons, the media center and classrooms, then carried school spirit through the building with the Bison mascot wall, \"Show Your Bison Pride\" and the BCMS Family Room wall.",
+      "We painted the hallways and purple-and-white locker halls, the commons, the media center and classrooms, plus the Bison mascot wall, \"Show Your Bison Pride\" and the BCMS Family Room wall.",
     ],
     scope: ["Hallways & locker halls", "Commons & media center", "Classrooms", "Bison pride & mascot walls"],
   },
@@ -421,7 +451,7 @@ export const projects = {
     featured: true,
     summary: "Restoration work on a historic Carnegie Free Library, from weathered entry doors to the interior.",
     story: [
-      "Historic buildings need a lighter touch. At this Carnegie Free Library, we refinished the weathered entry doors (the before and after are in the photos), restored the exterior and worked on the interior renovation.",
+      "At this Carnegie Free Library, we refinished the weathered entry doors (the before and after are in the photos), restored the exterior and worked on the interior renovation.",
     ],
     scope: ["Entry door refinishing", "Exterior restoration", "Interior renovation"],
   },
@@ -437,7 +467,7 @@ export const projects = {
   "rollover-car-wash-bay": {
     summary: "A rollover car wash bay and service door washed down and repainted.",
     story: [
-      "Car wash bays live in water and chemicals. We washed down the bay walls, repainted them and the tunnel, and refinished the service door, before and after shown.",
+      "We washed down the bay walls of a rollover car wash, repainted them and the tunnel, and refinished the service door. The photos show the bay before and after.",
     ],
     scope: ["Wash-down prep", "Bay & tunnel walls", "Service door"],
   },
@@ -458,7 +488,7 @@ export const projects = {
   },
   "black-steel-pergola-walkway": {
     summary: "A steel pergola walkway coated black.",
-    story: ["We coated the steel frame of a pergola walkway over a brick path in a crisp black finish."],
+    story: ["We coated the steel frame of a pergola walkway over a brick path in black."],
     scope: ["Structural steel coating"],
   },
   "blue-accent-wall-school": {
@@ -526,7 +556,7 @@ export const projects = {
   "oak-kitchen-cabinet-refinish": {
     summary: "Oak kitchen cabinets and island painted white, before and after.",
     story: [
-      "We masked the kitchen, took the doors to the shop to spray them white, and painted the oak boxes and island on site, turning a dated oak kitchen bright.",
+      "We masked the kitchen, took the doors to the shop to spray them white, and painted the oak boxes and island on site.",
     ],
     scope: ["Masking", "Shop-sprayed doors", "Cabinet boxes & island"],
   },

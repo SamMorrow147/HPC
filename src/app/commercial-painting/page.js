@@ -1,6 +1,6 @@
 import CategoryHub from "@/components/CategoryHub";
 import { photo } from "@/lib/gallery";
-import { ClientGroups, FeatureList, IndustryLinks } from "@/components/ServiceBlocks";
+import { IndustryLinks } from "@/components/ServiceBlocks";
 import { industries } from "@/data/industries";
 
 export const metadata = { title: "Commercial Painting | High Performance Coatings" };
@@ -36,6 +36,7 @@ export default function Page() {
         },
         {
           label: "Electrostatic Painting",
+          photo: "j173",
           blurb: "Lockers, partitions and metal fixtures refinished in place: 1,000+ lockers at St. Louis Park HS.",
         },
         {
@@ -45,29 +46,6 @@ export default function Page() {
         },
       ]}
     >
-      <FeatureList
-        kicker="Coatings we spec"
-        title="Commercial-grade products for each surface"
-        items={[
-          { label: "Sherwin-Williams Loxon", detail: "Self-cleaning masonry and exterior systems." },
-          { label: "Sherwin-Williams Emerald", detail: "Long-life interior and exterior finishes." },
-          { label: "Benjamin Moore Aura", detail: "High-hide finishes for high-traffic interiors." },
-          { label: "Tnemec Fluoronar", detail: "Fluoropolymer finish for architectural metal (Canvas Apartments sculpture)." },
-          { label: "EIFS recoating", detail: "Shakopee River Center and similar exteriors." },
-          { label: "Steel & metal buildings", detail: "Refinishing and protective coatings for steel structures." },
-        ]}
-      />
-
-      <ClientGroups
-        title="A sample of recent commercial work"
-        groups={[
-          industries.find((i) => i.slug === "education").clients[1],
-          industries.find((i) => i.slug === "government-public-safety").clients[0],
-          industries.find((i) => i.slug === "retail-hospitality").clients[0],
-        ]}
-      />
-
-      <div className="pt-14" />
       <IndustryLinks
         industries={industries.filter((i) =>
           ["education", "government-public-safety", "retail-hospitality", "automotive-car-wash"].includes(i.slug)

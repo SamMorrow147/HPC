@@ -3,18 +3,10 @@ import Link from "next/link";
 import { photo, photoHref, photosFor } from "@/lib/gallery";
 
 function SubServiceCard({ service, sub }) {
-  const file = sub.photo ? photo(sub.photo) : null;
-
   return (
     <div className="overflow-hidden rounded-xl border border-brand-line bg-white">
       <div className="relative aspect-[4/3] bg-brand-green-soft">
-        {file ? (
-          <Image src={file} alt={sub.label} fill sizes="(min-width: 1024px) 33vw, 50vw" className="object-cover" />
-        ) : (
-          <div className="flex h-full items-center justify-center px-4 text-center text-xs font-semibold text-brand-green-dark/60">
-            Photos coming soon
-          </div>
-        )}
+        <Image src={photo(sub.photo)} alt={sub.label} fill sizes="(min-width: 1024px) 33vw, 50vw" className="object-cover" />
       </div>
       <div className="p-5">
         <h3 className="font-bold text-brand-ink">{sub.label}</h3>
@@ -24,7 +16,6 @@ function SubServiceCard({ service, sub }) {
             Learn more &rarr;
           </Link>
         ) : (
-          file &&
           service && (
             <Link
               href={`/projects?service=${service}`}
@@ -85,6 +76,9 @@ export default function CategoryHub({
   heroImage,
   children,
 }) {
+  // Only show work we can picture. A card without a photo stays in the page's
+  // data and appears on its own once a photo id is added.
+  const cards = (subServices ?? []).filter((sub) => sub.photo);
   return (
     <>
       <section className="relative flex min-h-[320px] items-center overflow-hidden bg-brand-charcoal">
@@ -103,10 +97,10 @@ export default function CategoryHub({
         </div>
       </section>
 
-      {subServices?.length > 0 && (
+      {cards.length > 0 && (
         <section className="mx-auto max-w-7xl px-6 py-14">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {[...subServices].sort((a, b) => !!b.photo - !!a.photo).map((sub) => (
+            {cards.map((sub) => (
               <SubServiceCard key={sub.label} service={service} sub={sub} />
             ))}
           </div>
@@ -120,14 +114,14 @@ export default function CategoryHub({
       <section className="bg-brand-green py-12">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 text-center sm:flex-row sm:text-left">
           <div>
-            <h2 className="text-xl font-extrabold text-white">Ready to get started?</h2>
-            <p className="mt-1 text-white/90">Free estimates across Minnesota.</p>
+            <h2 className="text-xl font-extrabold text-white">Have a project in mind?</h2>
+            <p className="mt-1 text-white/90">Commercial bids and free residential estimates across MN, WI, ND, SD &amp; IA.</p>
           </div>
           <Link
             href="/contact/free-estimate"
             className="shrink-0 rounded-full bg-white px-7 py-3 text-sm font-bold text-brand-ink hover:bg-brand-charcoal hover:text-white"
           >
-            Get a Free Estimate
+            Request a Bid or Estimate
           </Link>
         </div>
       </section>

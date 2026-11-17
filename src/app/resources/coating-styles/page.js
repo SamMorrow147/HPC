@@ -10,7 +10,7 @@ export const metadata = { title: "Coating Styles & Colors | High Performance Coa
 // fake here.
 const STYLES = [
   { name: "Flake", desc: "Color chips broadcast into the base coat for texture and hide — the most popular residential garage finish.", swatch: "repeating-conic-gradient(#8b8f93 0% 4%, #d8d2c4 4% 8%, #5c5f61 8% 12%, #c9a876 12% 16%)" },
-  { name: "Metallic", desc: "Pearlescent pigments create a marbled, almost 3D look. A signature high-end finish.", swatch: "radial-gradient(circle at 30% 30%, #9fb8c9, #4a6577 60%, #27394a)" },
+  { name: "Metallic", desc: "Pearlescent pigments worked by hand into a marbled look with depth. No two floors come out the same.", swatch: "radial-gradient(circle at 30% 30%, #9fb8c9, #4a6577 60%, #27394a)" },
   { name: "Quartz", desc: "Colored quartz sand broadcast for a durable, slip-resistant, uniformly textured floor.", swatch: "repeating-linear-gradient(45deg, #c7bba3 0 6px, #a89a7a 6px 12px, #8c7d5e 12px 18px)" },
   { name: "Mica", desc: "Natural mica minerals for a subtle shimmer and stone-like depth.", swatch: "radial-gradient(circle at 60% 40%, #d9d2c3, #a79f8c 70%)" },
   { name: "Wood Look", desc: "Decorative stain techniques that mimic natural wood grain on concrete.", swatch: "repeating-linear-gradient(90deg, #8a5a33 0 8px, #6e4526 8px 14px, #9c6a3f 14px 22px)" },
@@ -42,7 +42,7 @@ export default function Page() {
           Swatches above are representative, not exact — see real finishes
           in person with a sample board at your estimate, or browse the{" "}
           <Link href="/projects" className="font-semibold text-brand-green hover:underline">
-            our projects
+            project gallery
           </Link>{" "}
           for finished floors.
         </p>

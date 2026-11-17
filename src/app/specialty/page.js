@@ -9,7 +9,7 @@ export default function Page() {
     <CategoryHub
       kicker="Services"
       title="Specialty Coatings & Finishes"
-      intro="The jobs that need a coatings specialist rather than a general painter: tackable wallcovering for schools, decorative and historic concrete, waterproofing and traffic coatings, and hand-painted graphics."
+      intro="Work outside standard painting and floor coating, each with its own products and methods: tackable wallcovering for schools, decorative and historic concrete, waterproofing and traffic coatings, and hand-painted graphics."
       heroImage={photo("f192")}
       service="specialty"
       subServices={[
@@ -25,7 +25,7 @@ export default function Page() {
         },
         {
           label: "Historic Concrete Restoration",
-          blurb: "Restoring old concrete without losing its character: St. Anthony Main (165 years old) and St. Croix Falls.",
+          blurb: "Repairing and refinishing old concrete while keeping its original look: St. Anthony Main (165 years old) and St. Croix Falls.",
         },
         {
           label: "Waterproofing & Traffic Coatings",

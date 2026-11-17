@@ -22,11 +22,11 @@ const FAQS = [
   },
   {
     q: "What areas do you serve?",
-    a: "We have crews based out of the Minneapolis area and Alexandria, MN, and take on residential and commercial projects across Minnesota.",
+    a: "We're headquartered in Buffalo, MN, with people in the Twin Cities and Alexandria. Crews work across Minnesota and take regular jobs in Wisconsin, North Dakota, South Dakota and Iowa.",
   },
   {
     q: "Do you offer free estimates?",
-    a: "Yes. Request one through our Free Estimate form or give us a call directly.",
+    a: "Residential estimates are free. Commercial and industrial work is bid from plans, a spec or a site walk. Either way, start with the estimate form or call us.",
   },
 ];
 

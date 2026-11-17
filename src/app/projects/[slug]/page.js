@@ -5,6 +5,7 @@ import { industries } from "@/data/industries";
 import {
   getProject,
   projects,
+  projectsMatching,
   relatedProjects,
   SERVICE_HREFS,
   SERVICE_LABELS,
@@ -81,18 +82,25 @@ export default async function Page({ params }) {
   if (!project) notFound();
 
   const industry = industries.find((i) => i.slug === project.industry);
+  // Industries whose sections use this project, including jobs that were
+  // never tagged with an industry (locker-room floors on Education).
+  const fromIndustries = industries.filter((ind) =>
+    ind.services.some((section) =>
+      projectsMatching(section, ind.slug).some((p) => p.slug === project.slug)
+    )
+  );
   const chapters = CHAPTERS.map((c) => ({
     ...c,
     photos: project.photos.filter((p) => p.stage === c.stage && p.id !== project.cover.id),
   })).filter((c) => c.photos.length);
-  const related = relatedProjects(project);
+  const inIndustry = fromIndustries.length
+    ? projects.filter(
+        (p) => p.slug !== project.slug && fromIndustries.some((ind) => p.industry === ind.slug)
+      )
+    : [];
+  const related = (inIndustry.length ? inIndustry : relatedProjects(project)).slice(0, 3);
 
-  const facts = [
-    ["Service", SERVICE_LABELS[project.service], SERVICE_HREFS[project.service]],
-    industry && ["Industry", industry.label, `/industries/${industry.slug}`],
-    project.finish && ["Finish", project.finish],
-    ["Photos", `${project.photos.length} from the job`],
-  ].filter(Boolean);
+  const industryLinks = fromIndustries.length ? fromIndustries : industry ? [industry] : [];
 
   return (
     <article>
@@ -109,13 +117,27 @@ export default async function Page({ params }) {
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/10" />
         <div className="relative mx-auto w-full max-w-5xl px-6 pb-12 pt-32">
           <nav className="text-sm font-semibold text-white/70">
-            <Link href="/projects" className="hover:text-white">
-              Our Work
-            </Link>
-            <span className="mx-2">/</span>
-            <Link href={`/projects?service=${project.service}`} className="hover:text-white">
-              {SERVICE_LABELS[project.service]}
-            </Link>
+            {fromIndustries.length ? (
+              <>
+                <Link href="/industries" className="hover:text-white">
+                  Industries
+                </Link>
+                <span className="mx-2">/</span>
+                <Link href={`/industries/${fromIndustries[0].slug}`} className="hover:text-white">
+                  {fromIndustries[0].label}
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link href="/projects" className="hover:text-white">
+                  Our Work
+                </Link>
+                <span className="mx-2">/</span>
+                <Link href={`/projects?service=${project.service}`} className="hover:text-white">
+                  {SERVICE_LABELS[project.service]}
+                </Link>
+              </>
+            )}
           </nav>
           <h1 className="mt-3 max-w-3xl text-4xl font-extrabold leading-tight text-white sm:text-5xl">
             {project.title}
@@ -124,24 +146,42 @@ export default async function Page({ params }) {
         </div>
       </header>
 
-      {/* Facts */}
-      <section className="border-b border-brand-line bg-white">
-        <dl className="mx-auto grid max-w-5xl grid-cols-2 gap-6 px-6 py-6 sm:grid-cols-4">
-          {facts.map(([label, value, href]) => (
-            <div key={label}>
-              <dt className="text-xs font-bold uppercase tracking-wider text-brand-muted">{label}</dt>
-              <dd className="mt-1 font-semibold text-brand-ink">
-                {href ? (
-                  <Link href={href} className="hover:text-brand-green-dark">
-                    {value} &rarr;
-                  </Link>
-                ) : (
-                  value
-                )}
-              </dd>
-            </div>
+      {/* Way back. Sits on a solid bar so it isn't lost in the photo. */}
+      <div className="border-b border-brand-line bg-white">
+        <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-x-6 gap-y-2 px-6 py-3 text-sm font-bold">
+          <Link href="/projects" className="text-brand-green-dark hover:underline">
+            &larr; All projects
+          </Link>
+          {fromIndustries.map((ind) => (
+            <Link key={ind.slug} href={`/industries/${ind.slug}`} className="text-brand-green-dark hover:underline">
+              &larr; {ind.label}
+            </Link>
           ))}
-        </dl>
+          <Link href={SERVICE_HREFS[project.service]} className="text-brand-ink hover:text-brand-green-dark">
+            {SERVICE_LABELS[project.service]}
+          </Link>
+        </div>
+      </div>
+
+      {/* Next step after the project: more of this service, more of this industry. */}
+      <section className="border-b border-brand-line bg-white">
+        <div className="mx-auto flex max-w-5xl flex-wrap gap-3 px-6 py-6">
+          <Link
+            href={SERVICE_HREFS[project.service]}
+            className="rounded-full bg-brand-ink px-5 py-2.5 text-sm font-bold text-white hover:bg-brand-green"
+          >
+            View more {SERVICE_LABELS[project.service].toLowerCase()}
+          </Link>
+          {industryLinks.map((ind) => (
+            <Link
+              key={ind.slug}
+              href={`/projects?industry=${ind.slug}`}
+              className="rounded-full border border-brand-line bg-white px-5 py-2.5 text-sm font-bold text-brand-ink hover:border-brand-green hover:text-brand-green-dark"
+            >
+              View more {ind.label.toLowerCase()} projects
+            </Link>
+          ))}
+        </div>
       </section>
 
       {/* Story */}
@@ -206,9 +246,19 @@ export default async function Page({ params }) {
       {/* More projects */}
       <section className="mx-auto max-w-7xl px-6 py-16">
         <div className="flex items-end justify-between gap-4">
-          <h2 className="text-2xl font-extrabold text-brand-ink sm:text-3xl">More projects</h2>
-          <Link href="/projects" className="shrink-0 text-sm font-bold text-brand-green-dark hover:underline">
-            All our work &rarr;
+          <h2 className="text-2xl font-extrabold text-brand-ink sm:text-3xl">
+            {fromIndustries.length === 1
+              ? `More ${fromIndustries[0].label.toLowerCase()} work`
+              : "More projects"}
+          </h2>
+          <Link
+            href={fromIndustries.length === 1 ? `/projects?industry=${fromIndustries[0].slug}` : "/projects"}
+            className="shrink-0 text-sm font-bold text-brand-green-dark hover:underline"
+          >
+            {fromIndustries.length === 1
+              ? `All ${fromIndustries[0].label.toLowerCase()} projects`
+              : "All our work"}{" "}
+            &rarr;
           </Link>
         </div>
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

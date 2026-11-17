@@ -17,7 +17,7 @@ export default function Page() {
     <>
       <PageHero
         kicker="Resources"
-        title="Everything you need to plan your project"
+        title="Planning a project"
         intro="Coating types, finish options, and answers to the questions we hear most."
       />
       <section className="mx-auto max-w-7xl px-6 py-14">

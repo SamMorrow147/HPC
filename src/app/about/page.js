@@ -14,7 +14,7 @@ const ITEMS = [
 export default function Page() {
   return (
     <>
-      <PageHero kicker="About" title="The team behind High Performance Coatings" />
+      <PageHero kicker="About" title="About High Performance Coatings" />
       <section className="mx-auto max-w-7xl px-6 py-14">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {ITEMS.map((item) => (

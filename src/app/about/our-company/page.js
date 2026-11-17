@@ -23,11 +23,10 @@ export default function Page() {
             We&apos;re locally owned and operated, headquartered in Buffalo,
             MN, with crews working across the Twin Cities, lakes country
             around Alexandria, and southern Minnesota, plus regular jobs in
-            Wisconsin, the Dakotas and Iowa. Regardless of the
-            project demand, perfection and satisfaction are the standard we
-            hold ourselves to — and surface preparation, done right before
-            anything else happens, is what separates a coating that lasts
-            from one that doesn&apos;t.
+            Wisconsin, the Dakotas and Iowa. Most coating failures come
+            down to surface preparation, so that&apos;s where we spend the
+            time: grinding, blasting or stripping until the surface is
+            ready, before any product goes on.
           </p>
           <p>
             We work directly with homeowners, and alongside architects,

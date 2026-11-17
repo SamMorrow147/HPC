@@ -6,6 +6,8 @@ export const metadata = { title: "Murals | High Performance Coatings" };
 
 export default function Page() {
   const images = gallery.filter((p) => p.group === "lake-byllesby-mural");
+  // Finished ceiling shot; looked up by id so removing an album photo can't shift it.
+  const cover = images.find((p) => p.id === "m009") ?? images[images.length - 1];
   const byllesby = {
     title: "Lake Byllesby Pavilion Ceiling Mural",
     blurb:
@@ -19,7 +21,7 @@ export default function Page() {
         {images.length > 0 && (
           <>
             <Image
-              src={byllesby.images[9].file}
+              src={cover.file}
               alt={byllesby.title}
               fill
               className="object-cover opacity-45"
@@ -33,8 +35,8 @@ export default function Page() {
           </p>
           <h1 className="max-w-2xl text-3xl font-extrabold text-white sm:text-4xl">Murals</h1>
           <p className="mt-4 max-w-xl text-white/80">
-            Custom mural work for businesses, schools, and public spaces
-            &mdash; from lettering and branding to hand-stained ceiling art.
+            Painted logos, lettering and murals for schools, businesses and
+            public buildings, including a hand-stained pavilion ceiling.
           </p>
         </div>
       </section>
@@ -53,7 +55,7 @@ export default function Page() {
               <video
                 src="/gallery/murals/byllesby-video.mp4"
                 controls
-                poster={byllesby.images[9].file}
+                poster={cover.file}
                 className="aspect-video w-full"
               />
             </div>
@@ -72,8 +74,8 @@ export default function Page() {
       <section className="bg-brand-green py-12">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 text-center sm:flex-row sm:text-left">
           <div>
-            <h2 className="text-xl font-extrabold text-white">Have a space in mind?</h2>
-            <p className="mt-1 text-white/90">Let&apos;s talk about what&apos;s possible.</p>
+            <h2 className="text-xl font-extrabold text-white">Have a wall or ceiling in mind?</h2>
+            <p className="mt-1 text-white/90">Send us photos and rough dimensions and we&apos;ll talk through options.</p>
           </div>
           <Link
             href="/contact/free-estimate"

@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import CategoryHub from "@/components/CategoryHub";
 import { photo } from "@/lib/gallery";
-import { ClientGroups, FeatureList, IndustryLinks, ProofBand } from "@/components/ServiceBlocks";
+import { FeatureList, IndustryLinks, ProofBand } from "@/components/ServiceBlocks";
 import { industries } from "@/data/industries";
 
 export const metadata = { title: "Floor Coatings | High Performance Coatings" };
@@ -57,7 +57,7 @@ export default function Page() {
 
       <FeatureList
         kicker="Systems we install"
-        title="The right system for the floor, not one product for everything"
+        title="Matched to the traffic, chemicals and cleaning each floor will see"
         items={[
           { label: "Full flake epoxy", detail: "Including hybrid and stone flake blends." },
           { label: "Metallic epoxy", detail: "Custom color blends for basements, showrooms and lobbies." },
@@ -80,31 +80,13 @@ export default function Page() {
         ]}
       />
 
-      <ClientGroups
-        title="Floors we've put down"
-        groups={[
-          {
-            group: "Commercial & industrial",
-            names: ["Wallace Carlson", "Seagate", "MGK", "Modern Farm Equipment", "Swanston Equipment", "Nicollet Bus Garage"],
-          },
-          {
-            group: "Automotive & car wash",
-            names: ["Mercedes-Benz Bloomington", "Casey's", "Cenex", "Mr. Carwash", "Aztec BP", "Stop N Shop", "NAPA"],
-          },
-          {
-            group: "Food, retail & schools",
-            names: ["Luce Line Brewing", "Scooters Coffee", "Ziggi's", "Subway", "Edwin's Edibles", "West Fargo, Edgerton & Becker locker rooms"],
-          },
-        ]}
-      />
-
       <section className="mx-auto max-w-7xl px-6 py-14">
         <div className="rounded-2xl border border-brand-line p-8">
-          <h2 className="text-xl font-extrabold text-brand-ink">Floor failing? We fix other companies&apos; work.</h2>
+          <h2 className="text-xl font-extrabold text-brand-ink">Failing floor coating? We replace other contractors&apos; work.</h2>
           <p className="mt-2 max-w-2xl text-brand-muted">
             Peeling, delaminating or hot-tire-lifted coatings are almost always
-            a prep problem. We grind it off, prep it right, and put down a
-            system that stays.
+            a prep problem. We grind the old coating off, prep the slab
+            properly and install a new system on clean concrete.
           </p>
         </div>
       </section>

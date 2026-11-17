@@ -11,7 +11,7 @@ export default function Page() {
       <PageHero
         kicker="Industries"
         title="Who we work for"
-        intro="From 3M and BNSF to fire stations, campuses, car washes and lake cabins. Pick your industry to see the work and the names behind it."
+        intro="From 3M and BNSF to fire stations, campuses, car washes and lake cabins. Pick your industry to see the projects and services that apply to it."
       />
       <section className="mx-auto max-w-7xl px-6 py-14">
         <CardGrid

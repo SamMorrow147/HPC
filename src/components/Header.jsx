@@ -107,7 +107,7 @@ export default function Header() {
       <div className="hidden bg-brand-charcoal text-white md:block">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-1.5 text-xs">
           <span>Based in Buffalo, MN &middot; Commercial, Industrial &amp; Residential Coatings across MN, WI, ND, SD &amp; IA</span>
-          <a href="tel:7636204121" className="font-semibold hover:text-brand-green">
+          <a href="tel:7632045889" className="font-semibold hover:text-brand-green">
             763-204-5889
           </a>
         </div>

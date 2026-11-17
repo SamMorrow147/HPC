@@ -5,7 +5,7 @@ export const metadata = { title: "Application Guides | High Performance Coatings
 const STEPS = [
   {
     title: "1. Walkthrough & Estimate",
-    desc: "We look at the space in person (or from photos for a rough estimate), talk through finish options, and give you a written quote — no surprises once work starts.",
+    desc: "We look at the space in person (or from photos for a rough estimate), talk through finish options, and give you a written quote, so the price is set before work starts.",
   },
   {
     title: "2. Surface Prep",
@@ -17,7 +17,7 @@ const STEPS = [
   },
   {
     title: "4. Walkthrough & Care Instructions",
-    desc: "We review the finished work with you and send care instructions — what to avoid in the first few days, and how to keep the finish looking new for years.",
+    desc: "We review the finished work with you and send care instructions — what to avoid in the first few days, and how to clean and maintain the finish after that.",
   },
 ];
 

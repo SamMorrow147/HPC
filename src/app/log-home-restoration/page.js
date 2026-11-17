@@ -1,7 +1,6 @@
 import CategoryHub from "@/components/CategoryHub";
 import { photo } from "@/lib/gallery";
-import { ClientGroups, FeatureList, Steps } from "@/components/ServiceBlocks";
-import { industries } from "@/data/industries";
+import { FeatureList, Steps } from "@/components/ServiceBlocks";
 
 export const metadata = { title: "Log Home & Wood Restoration | High Performance Coatings" };
 
@@ -10,14 +9,14 @@ export default function Page() {
     <CategoryHub
       kicker="Services"
       title="Log Home & Wood Restoration"
-      intro="Log home repair professionals for lakes country. We strip, repair, chink and stain log homes and cabins across Minnesota and western Wisconsin, and come back for maintenance recoats so the finish never gets away from you."
+      intro="We strip, repair, chink and stain log homes and cabins across Minnesota and western Wisconsin, then come back every few years for a maintenance coat so the logs don't need another full strip."
       service="log-home"
       heroImage={photo("f223")}
       subServices={[
         {
           label: "Full Log Home Restoration",
           photo: "f024",
-          blurb: "Strip to bare wood, repair, chink and stain. Weathered gray logs back to new.",
+          blurb: "Stripped to bare wood, repaired, chinked and finished with a three-coat stain.",
         },
         {
           label: "Log & Shake Replacement",
@@ -32,7 +31,7 @@ export default function Page() {
         {
           label: "Maintenance Recoats",
           photo: "f224",
-          blurb: "Wash and recoat every few years for past customers, before the wood needs a full strip.",
+          blurb: "A wash and recoat every few years for past customers, before the wood needs a full strip.",
         },
         {
           label: "Decks, Siding & Pergolas",
@@ -42,7 +41,7 @@ export default function Page() {
         {
           label: "Interior Painting & Cabinets",
           photo: "j154",
-          blurb: "Whole-home interior repaints, stair railings, and oak cabinets refinished white, shop-sprayed for a factory-smooth finish.",
+          blurb: "Whole-home interior repaints, stair railings, and oak cabinets refinished white, with the doors sprayed in our shop.",
         },
         {
           label: "House Painting & Steel Siding",
@@ -76,17 +75,12 @@ export default function Page() {
         ]}
       />
 
-      <ClientGroups
-        kicker="Where we work"
-        title="Lake homes we've restored"
-        intro="Most of our log work comes from neighbors who saw the house next door. We've been back to Lake Ida in Alexandria more than eight times."
-        groups={industries.find((i) => i.slug === "residential-lake-homes").clients}
-      />
-
       <section className="mx-auto max-w-7xl px-6 py-14">
         <div className="rounded-2xl border border-brand-line p-8">
           <h2 className="text-xl font-extrabold text-brand-ink">Book summer and fall work early</h2>
           <p className="mt-2 max-w-2xl text-brand-muted">
+            Most of this work comes from neighbors who saw the house next door.
+            We&apos;ve been back to Lake Ida in Alexandria more than eight times.
             Log staining needs warm, dry weather, so the season fills up fast.
             Get on the schedule over the winter for next summer.
           </p>

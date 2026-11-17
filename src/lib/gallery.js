@@ -107,3 +107,50 @@ export function photosFor({ service, industry, spaces, limit = 8 } = {}) {
     .filter((p, i, all) => !p.group || all.findIndex((q) => q.group === p.group) === i)
     .slice(0, limit);
 }
+
+// A photo belongs to an industry-page section. `groups` pins specific albums
+// when the industry tag is wrong (a dealership filed under retail, for
+// example). Otherwise match service + space, and allow untagged photos when
+// a space is set so locker-room floors still show up on Education.
+function photoInSection(p, section, industrySlug) {
+  // No service, space, or album pin means we don't have a photo for this yet.
+  if (!section.groups?.length && !section.spaces?.length && !section.service) return false;
+  if (section.excludeGroups?.length && section.excludeGroups.includes(p.group)) return false;
+  if (section.groups?.length) return section.groups.includes(p.group);
+  if (section.spaces?.length && !section.spaces.includes(p.space)) return false;
+  if (section.excludeSpaces?.length && section.excludeSpaces.includes(p.space)) return false;
+  if (section.service && p.service !== section.service) return false;
+  if (!section.anyIndustry && industrySlug) {
+    const same = p.industry === industrySlug;
+    const untagged = !p.industry && section.includeUntagged && !!section.spaces?.length;
+    if (!same && !untagged) return false;
+  }
+  return true;
+}
+
+function byFinishedQuality(a, b) {
+  const stage = (a.stage === "after" ? 0 : 1) - (b.stage === "after" ? 0 : 1);
+  return stage || QUALITY_RANK[a.quality] - QUALITY_RANK[b.quality] || b.w * b.h - a.w * a.h;
+}
+
+// Best finished photo for a section, optionally narrowed by a title pattern
+// so "showroom floors" and "dealership painting" can share one album.
+export function bestPhoto(section, industrySlug) {
+  let pool = gallery.filter((p) => p.stage !== "before" && photoInSection(p, section, industrySlug));
+  if (section.photoTitle) {
+    const re = new RegExp(section.photoTitle, "i");
+    const titled = pool.filter((p) => re.test(p.title));
+    if (titled.length) pool = titled;
+  }
+  return pool.sort(byFinishedQuality)[0] ?? null;
+}
+
+// Case-study pages whose photos match the section, best jobs first.
+export function projectsMatching(section, industrySlug) {
+  return projects
+    .filter((p) => p.photos.some((ph) => photoInSection(ph, section, industrySlug)))
+    .sort(
+      (a, b) =>
+        (b.featured ? 1 : 0) - (a.featured ? 1 : 0) || a.rank - b.rank || b.photos.length - a.photos.length
+    );
+}

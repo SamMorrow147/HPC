@@ -6,7 +6,7 @@ export const metadata = { title: "Certifications & Affiliations | High Performan
 
 const CERTS = [
   { name: "EPA RRP Lead-Safe Certified", file: "/logos/epa.png", desc: "Certified for lead-safe renovation, repair, and painting work on homes built before 1978." },
-  { name: "NACE International — Twin Cities Section", file: "/logos/nace.jpg", desc: "Affiliated with the leading coatings and corrosion-protection industry association." },
+  { name: "NACE International — Twin Cities Section", file: "/logos/nace.jpg", desc: "Affiliated with the Twin Cities section of NACE, the industry association for coatings and corrosion control." },
   { name: "Central CERT Certification Program", file: "/logos/central-cert.jpg", desc: "Certified through the Central CERT program." },
   { name: "Buffalo Area Chamber of Commerce", file: "/logos/buffalo-chamber.png", desc: "Member, Buffalo Area Chamber of Commerce & Tourism Bureau." },
 ];
@@ -27,7 +27,7 @@ export default function Page() {
         <div className="mt-6 grid gap-6 sm:grid-cols-2">
           {CERTS.map((c) => (
             <div key={c.name} className="flex items-center gap-5 rounded-xl border border-brand-line bg-white p-5">
-              <div className="relative h-14 w-20 shrink-0">
+              <div className="relative h-20 w-28 shrink-0">
                 <Image src={c.file} alt={c.name} fill className="object-contain" />
               </div>
               <div>
@@ -39,20 +39,23 @@ export default function Page() {
         </div>
 
         <h2 className="mt-14 text-xl font-bold text-brand-ink">Select Suppliers</h2>
-        <div className="mt-6 flex flex-wrap items-center gap-10">
+        <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
           {SUPPLIERS.map((s) => (
-            <div key={s.name} className="relative h-10 w-32">
-              <Image src={s.file} alt={s.name} fill className="object-contain object-left" />
+            <div key={s.name} className="flex h-40 items-center justify-center rounded-xl border border-brand-line bg-white p-6">
+              <div className="relative h-28 w-full">
+                <Image src={s.file} alt={s.name} fill className="object-contain" />
+              </div>
             </div>
           ))}
         </div>
 
         <p className="mt-12 text-sm text-brand-muted">
-          EPA RRP certification details echo the{" "}
-          <Link href="/log-home-restoration" className="font-semibold text-brand-green-dark hover:underline">
-            Log Home &amp; Wood Restoration
-          </Link>{" "}
-          page for projects involving pre-1978 homes.
+          If your home was built before 1978, lead-safe rules apply to any
+          painting, sanding or stripping. Mention it when you{" "}
+          <Link href="/contact/free-estimate" className="font-semibold text-brand-green-dark hover:underline">
+            request an estimate
+          </Link>
+          .
         </p>
       </section>
     </>

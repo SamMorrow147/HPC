@@ -1,6 +1,6 @@
 import CategoryHub from "@/components/CategoryHub";
 import { photo } from "@/lib/gallery";
-import { ClientGroups, IndustryLinks, ProofBand, Steps } from "@/components/ServiceBlocks";
+import { IndustryLinks, ProofBand, Steps } from "@/components/ServiceBlocks";
 import { industries } from "@/data/industries";
 
 export const metadata = { title: "Industrial Coatings & Tank Lining | High Performance Coatings" };
@@ -45,7 +45,7 @@ export default function Page() {
     >
       <ProofBand
         items={[
-          ["3M · BNSF · Kraft", "Industrial clients who can't afford a failed coating"],
+          ["3M · BNSF · Kraft", "Tank, steel and equipment work for manufacturers and railroads"],
           ["Novolac & chemical linings", "Systems for caustics, food contact and potable water"],
           ["Blast to finish", "Prep, lining and topcoat by the same crew"],
           ["MN, WI, ND, SD, IA", "We travel for industrial work"],
@@ -54,7 +54,7 @@ export default function Page() {
 
       <Steps
         kicker="How an industrial job runs"
-        title="Prep is the job"
+        title="Most of the job is prep"
         steps={[
           ["Site walk & spec", "We look at the substrate, exposure and service conditions, then match a system to them."],
           ["Abrasive blasting", "Remove old coatings, rust and mill scale to the profile the system needs."],
@@ -63,11 +63,6 @@ export default function Page() {
           ["Inspect", "Check coverage and finish before anything goes back in service."],
           ["Topcoat & graphics", "UV-stable topcoat, plus logos and lettering if you want them."],
         ]}
-      />
-
-      <ClientGroups
-        title="Industrial clients"
-        groups={industries.find((i) => i.slug === "industrial-manufacturing").clients}
       />
 
       <div className="pt-14" />

@@ -5,7 +5,6 @@ import LogoMarquee from "@/components/LogoMarquee";
 import { photo, photoHref } from "@/lib/gallery";
 import gallery from "@/data/gallery.json";
 import { SprayFillBand } from "@/components/SprayFillBand";
-import { SprayHoverFill } from "@/components/SprayHoverFill";
 import HeroShowcase from "@/components/HeroShowcase";
 import ServiceAreaMap from "@/components/ServiceAreaMap";
 import SectionSlideshow from "@/components/SectionSlideshow";
@@ -70,8 +69,8 @@ const SERVICE_SECTIONS = [
     label: "Log Home & Wood Restoration",
     href: "/log-home-restoration",
     alt: "Restored log home with fresh stain",
-    title: "Log homes and lake cabins brought back from gray",
-    body: "We strip, repair, chink and stain log homes and cabins across Minnesota and western Wisconsin, then come back for maintenance recoats so the finish never gets away from you. Most of this work comes from neighbors who saw the house next door.",
+    title: "Log home and cabin restoration across lakes country",
+    body: "We strip, repair, chink and stain log homes and cabins across Minnesota and western Wisconsin, then come back every few years for a maintenance coat so the logs don't need another full strip. Most of this work comes from neighbors who saw the house next door.",
     points: [
       "Ecoblast or steam stripping that doesn't chew up the wood",
       "Rotted logs and shakes replaced before the finish goes on",
@@ -83,8 +82,8 @@ const SERVICE_SECTIONS = [
     label: "Specialty",
     href: "/specialty",
     alt: "Specialty coating and wallcovering work",
-    title: "The jobs that need a coatings specialist, not a general painter",
-    body: "Tackable wallcovering for schools, decorative and historic concrete, waterproofing and traffic coatings, and hand-painted logos and murals.",
+    title: "Wallcovering, decorative concrete, waterproofing and murals",
+    body: "Work outside standard painting and floor coating, each with its own products and methods: tackable wallcovering for schools, stained and historic concrete, traffic coatings for balconies and decks, and hand-painted logos and murals.",
     points: [
       "Koroseal tackwall across metro schools",
       "165-year-old concrete restored at St. Anthony Main",
@@ -116,17 +115,15 @@ export default function Home() {
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
               href="/contact/free-estimate"
-              className="spray-hover-link rounded-full bg-brand-red px-8 py-3.5 text-sm font-bold uppercase tracking-wide text-white"
+              className="rounded-full bg-brand-red px-8 py-3.5 text-sm font-bold uppercase tracking-wide text-white transition-colors duration-150 hover:bg-white hover:text-brand-ink"
             >
-              <SprayHoverFill fill="#ffffff" />
-              <span className="spray-hover-label">Request a Bid</span>
+              Request a Bid
             </Link>
             <Link
               href="/projects"
-              className="spray-hover-link rounded-full border-2 border-white/80 px-8 py-3.5 text-sm font-bold uppercase tracking-wide text-white"
+              className="rounded-full border-2 border-white/80 px-8 py-3.5 text-sm font-bold uppercase tracking-wide text-white transition-colors duration-150 hover:border-white hover:bg-white hover:text-brand-ink"
             >
-              <SprayHoverFill />
-              <span className="spray-hover-label">See Our Work</span>
+              See Our Work
             </Link>
           </div>
           <div className="mt-10 flex max-w-md flex-col items-center gap-4 border-t border-white/10 pt-6 text-center sm:flex-row sm:items-center sm:gap-5 sm:text-left">
@@ -199,10 +196,9 @@ export default function Home() {
                 </ul>
                 <Link
                   href={s.href}
-                  className="spray-hover-link mt-6 self-start rounded-full bg-brand-ink px-6 py-3 text-sm font-bold text-white"
+                  className="mt-6 self-start rounded-full bg-brand-ink px-6 py-3 text-sm font-bold text-white transition-colors duration-150 hover:bg-brand-green hover:text-brand-ink"
                 >
-                  <SprayHoverFill />
-                  <span className="spray-hover-label">{s.label} &rarr;</span>
+                  {s.label} &rarr;
                 </Link>
               </div>
             </div>
@@ -215,7 +211,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6">
           <h2 className="text-3xl font-extrabold text-brand-ink">Industries we serve</h2>
           <p className="mt-2 max-w-xl text-brand-muted">
-            See the work and the names behind it for your kind of facility.
+            Projects and services grouped by the kind of building.
           </p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {industries.map((ind) => (
@@ -228,12 +224,10 @@ export default function Home() {
                   {ind.label} &rarr;
                 </div>
                 <div className="mt-1 text-sm text-brand-muted">
-                  {ind.clients
-                    .flatMap((g) => g.names)
-                    .slice(0, 4)
-                    .map((n) => n.replace(/ \(.*\)$/, ""))
-                    .join(", ")}
-                  &hellip;
+                  {ind.services
+                    .slice(0, 3)
+                    .map((s) => s.label)
+                    .join(" · ")}
                 </div>
               </Link>
             ))}
@@ -303,10 +297,9 @@ export default function Home() {
           </div>
           <Link
             href="/contact/free-estimate"
-            className="spray-hover-link shrink-0 rounded-full bg-brand-ink px-7 py-3 text-sm font-bold text-white"
+            className="shrink-0 rounded-full bg-brand-ink px-7 py-3 text-sm font-bold text-white transition-colors duration-150 hover:bg-white hover:text-brand-ink"
           >
-            <SprayHoverFill fill="#ffffff" />
-            <span className="spray-hover-label">Request a Bid or Estimate</span>
+            Request a Bid or Estimate
           </Link>
         </div>
       </section>

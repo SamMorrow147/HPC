@@ -23,17 +23,9 @@ export default function Page() {
           blurb: "Moisture-tolerant coatings that turn a concrete basement into finished living space.",
         },
         {
-          label: "Driveway",
-          blurb: "Durable exterior coatings built for UV exposure, freeze-thaw cycles, and road salt.",
-        },
-        {
           label: "Wine Rooms & Game Rooms",
           photo: "d122",
-          blurb: "Metallic epoxy in custom color blends -- a finished-room floor, not a basement slab.",
-        },
-        {
-          label: "Patios & Pool Decks",
-          blurb: "Slip-resistant, heat-reflective finishes for outdoor living and pool surrounds.",
+          blurb: "Metallic epoxy in custom color blends for wine rooms, game rooms and finished basements.",
         },
       ]}
     />

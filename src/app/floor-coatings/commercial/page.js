@@ -13,10 +13,6 @@ export default function Page() {
       heroImage={photo("f088")}
       subServices={[
         {
-          label: "Gyms & Fitness Centers",
-          blurb: "Gymnasium floors, weight rooms, and fitness center flooring built for heavy daily use.",
-        },
-        {
           label: "Schools & Locker Rooms",
           photo: "d084",
           blurb: "Quartz and flake locker rooms, showers, hallways and cafeterias (West Fargo, Edgerton, Becker), done over summer break.",
@@ -47,21 +43,13 @@ export default function Page() {
           blurb: "Coatings for trailer and box truck floors, and traffic coatings for parking ramps.",
         },
         {
-          label: "Hospitals & Healthcare",
-          blurb: "Seamless, sanitary flooring that meets healthcare cleanliness standards.",
-        },
-        {
           label: "Retail & Showrooms",
           photo: "f060",
-          blurb: "Decorative, durable flooring that looks good under showroom lighting.",
-        },
-        {
-          label: "Animal Facilities",
-          blurb: "Odor- and moisture-resistant flooring for kennels and veterinary facilities.",
+          blurb: "Metallic and solid-color epoxy for showrooms and retail floors.",
         },
         {
           label: "Warehouses & Distribution",
-          photo: "d102",
+          photo: "n015",
           blurb: "Heavy-duty coatings for warehouse floors, including a 40,000 sq ft install for Wallace Carlson.",
         },
       ]}

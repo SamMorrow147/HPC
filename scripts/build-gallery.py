@@ -23,10 +23,18 @@ SOURCES = {
     "S": os.path.join(ROOT, "scripts", "gallery-sources", "site"),
     # J&C Coatings (sister company) Facebook export; gitignored, lives in the repo root.
     "J": os.path.join(ROOT, "jc-coatings-facebook-photos"),
+    # HPC Facebook posts from 2026-09-30 on; gitignored, lives in the repo root.
+    "N": os.path.join(ROOT, "hpc-facebook-photos"),
 }
 # Project-level names for multi-photo albums (shown on gallery cards).
 # Client names only where legible on signage in the photos themselves.
 ALBUMS = {
+    "wallace-carlson-printing-plymouth": "Wallace Carlson Printing, Plymouth",
+    "orono-garage-flake-floor": "Orono Garage Flake Floor",
+    "cedar-lake-log-home-refresh": "Cedar Lake Log Home & Garage",
+    "washington-ballpark-light-towers": "Washington Ballpark Light Towers",
+    "koochiching-veterans-memorial": "Koochiching County Veterans Memorial",
+    "cava-dinkytown-mural-wallcovering": "Cava Mural Wallcovering, Dinkytown",
     "pine-woods-log-home": "Log Home Restoration in the Pines",
     "gfw-firebirds-school": "GFW Firebirds School Gym & Graphics",
     "metallic-epoxy-storefront": "Metallic Epoxy Storefront",
@@ -143,6 +151,14 @@ ALBUM_INDUSTRY = {
     "wind-turbine-tower-painting": "industrial-manufacturing",
     "widseth-office-exterior": "industrial-manufacturing",
     "river-valley-church": None,
+    "red-tile-locker-room-flake": "education",
+    "locker-room-flake-floor": "education",
+    "gray-flake-locker-storage-room": "education",
+    "bell-bank-exterior": "retail-hospitality",
+    "dental-clinic-interior": "retail-hospitality",
+    "gray-epoxy-large-room": "residential-lake-homes",
+    "gray-blue-flake-floor": "residential-lake-homes",
+    "ballpark-pavilion": "government-public-safety",
 }
 
 FIELDS = ["title", "service", "industry", "space", "finish", "stage", "quality", "group"]
@@ -182,7 +198,7 @@ def main():
         ("Pavilion Under the Trees", "after", "ok"),
         ("Pavilion From the Lawn", "after", "ok"),
         ("Mural Layout Drawing", "in-progress", "good"),
-        ("Stain Color Samples", "in-progress", "good"),
+        None,  # byllesby-3.jpg stain color samples, not published
         ("Staining the Ceiling From a Lift", "in-progress", "hero"),
         ("Watershed Lines Across the Ceiling", "after", "good"),
         ("Opening Day Crowd", "after", "good"),
@@ -190,7 +206,10 @@ def main():
         ("Pavilion in Use", "after", "good"),
         ("Finished Ceiling Over the Lake", "after", "hero"),
     ]
-    for i, (caption, stage, quality) in enumerate(murals):
+    for i, item in enumerate(murals):
+        if item is None:
+            continue
+        caption, stage, quality = item
         f = f"byllesby-{i}.jpg"
         w, h = Image.open(os.path.join(mural_dir, f)).size
         out.append({"id": f"m{i:03d}", "file": f"/gallery/murals/{f}", "w": w, "h": h,
