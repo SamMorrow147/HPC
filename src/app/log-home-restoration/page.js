@@ -1,6 +1,6 @@
 import CategoryHub from "@/components/CategoryHub";
 import { photo } from "@/lib/gallery";
-import { FeatureList, Steps } from "@/components/ServiceBlocks";
+import { Steps } from "@/components/ServiceBlocks";
 
 export const metadata = { title: "Log Home & Wood Restoration | High Performance Coatings" };
 
@@ -36,7 +36,7 @@ export default function Page() {
         {
           label: "Decks, Siding & Pergolas",
           photo: "f128",
-          blurb: "Cedar siding, decks (including Rymar on Ipe at Surly Brewing), pergolas, and Structures stain on Hardie board.",
+          blurb: "Cedar siding, decks, pergolas, and stained fiber-cement board, including the deck at Surly Brewing.",
         },
         {
           label: "Interior Painting & Cabinets",
@@ -58,20 +58,8 @@ export default function Page() {
           ["Wash & brighten", "Log wash and wood brightener restore the natural color and open the grain."],
           ["Repair", "Replace rotted logs and shakes; caulk checks and joints."],
           ["Chink", "Chinking seals the gaps between logs."],
-          ["Three-coat stain", "Structures Nature One (Natural, Pecan, Walnut, Teak, Cedar), Permachink Lifeline 2 or Q8 Log Oil."],
-          ["Maintain", "Scheduled recoats with Sherwin-Williams Emerald Rain Refresh or the original system."],
-        ]}
-      />
-
-      <FeatureList
-        kicker="Products"
-        title="Systems made for logs"
-        columns={2}
-        items={[
-          { label: "Structures Nature One", detail: "Our go-to log stain, in five natural tones." },
-          { label: "Permachink Lifeline 2", detail: "Log finish and chinking from the log-home specialists." },
-          { label: "Q8 Log Oil", detail: "Penetrating oil finish for a hand-rubbed look." },
-          { label: "Sherwin-Williams Emerald Rain Refresh", detail: "Self-cleaning exterior finish for maintenance coats." },
+          ["Three-coat stain", "A three-coat stain so the color and protection sit in the wood."],
+          ["Maintain", "A wash and recoat on a schedule, before the wood needs another full strip."],
         ]}
       />
 

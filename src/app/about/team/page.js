@@ -93,7 +93,7 @@ export default function Page() {
             Contact the team
           </Link>
           <Link href="/about/certifications" className="rounded-full border border-brand-line px-5 py-2.5 text-sm font-bold text-brand-ink hover:border-brand-ink">
-            Certifications & suppliers
+            Certifications
           </Link>
         </div>
       </section>

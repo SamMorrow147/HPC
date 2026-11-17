@@ -68,3 +68,27 @@ Commercial painting:
 - Tnemec Fluoronar — fluoropolymer finish for architectural metal (Canvas Apartments sculpture).
 - EIFS recoating — Shakopee River Center and similar exteriors.
 - Steel and metal buildings — refinishing and protective coatings for steel structures.
+
+Log homes:
+
+- Structures Nature One — log stain in Natural, Pecan, Walnut, Teak, and Cedar.
+- Permachink Lifeline 2 — log finish and chinking.
+- Q8 Log Oil — penetrating oil finish.
+- Sherwin-Williams Emerald Rain Refresh — maintenance coats.
+- Rymar — used on the Ipe deck at Surly Brewing.
+- Structures stain — used on Hardie board.
+
+Floors, kept off the public pages as a catalog. The floor coatings intro still names the families of work (epoxy, polyaspartic, urethane cement, polished concrete):
+
+- Full flake epoxy, including hybrid and stone flake blends.
+- Metallic epoxy for basements, showrooms, and lobbies.
+- Quartz epoxy, single and double broadcast, for locker rooms and wet areas.
+- Polyaspartic / polyurea, one-day systems.
+- Urethane cement for brewery, food-processing, and kitchen floors.
+- Solid color with nonslip for shops, warehouses, and production floors.
+- Epoxy cove base.
+- Polished concrete, ground and polished up to 800 grit.
+- Car wash wall and floor systems.
+- No-wax topcoat for LVT/VCT.
+
+Suppliers previously shown as logos on the certifications page: Sherwin-Williams, SealKrete, Hirshfield's, Rust-Oleum Industrial.

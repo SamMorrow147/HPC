@@ -11,13 +11,6 @@ const CERTS = [
   { name: "Buffalo Area Chamber of Commerce", file: "/logos/buffalo-chamber.png", desc: "Member, Buffalo Area Chamber of Commerce & Tourism Bureau." },
 ];
 
-const SUPPLIERS = [
-  { name: "Sherwin-Williams", file: "/logos/sherwin-williams.png" },
-  { name: "SealKrete High Performance", file: "/logos/sealkrete.png" },
-  { name: "Hirshfield's", file: "/logos/hirshfields.jpg" },
-  { name: "Rust-Oleum Industrial", file: "/logos/rustoleum.png" },
-];
-
 export default function Page() {
   return (
     <>
@@ -33,17 +26,6 @@ export default function Page() {
               <div>
                 <div className="font-semibold text-brand-ink">{c.name}</div>
                 <div className="mt-0.5 text-sm text-brand-muted">{c.desc}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <h2 className="mt-14 text-xl font-bold text-brand-ink">Select Suppliers</h2>
-        <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
-          {SUPPLIERS.map((s) => (
-            <div key={s.name} className="flex h-40 items-center justify-center rounded-xl border border-brand-line bg-white p-6">
-              <div className="relative h-28 w-full">
-                <Image src={s.file} alt={s.name} fill className="object-contain" />
               </div>
             </div>
           ))}

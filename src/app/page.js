@@ -74,7 +74,7 @@ const SERVICE_SECTIONS = [
     points: [
       "Ecoblast or steam stripping that doesn't chew up the wood",
       "Rotted logs and shakes replaced before the finish goes on",
-      "Three-coat Structures Nature One or Permachink Lifeline 2",
+      "A three-coat stain, then a maintenance coat every few years",
       "Back to Lake Ida in Alexandria more than eight times",
     ],
   },

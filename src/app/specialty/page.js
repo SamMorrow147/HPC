@@ -50,8 +50,6 @@ export default function Page() {
         columns={2}
         items={[
           { label: "Hot-water pressure washing", detail: "Concrete, siding, masonry and loading docks, before a coating or on its own." },
-          { label: "Self-cleaning exteriors", detail: "Loxon and Emerald Rain Refresh systems that shed dirt." },
-          { label: "No-wax coating for LVT/VCT", detail: "A durable topcoat that ends the strip-and-wax cycle." },
           { label: "Concrete repair", detail: "Crack and spall repair before any coating goes down." },
         ]}
       />

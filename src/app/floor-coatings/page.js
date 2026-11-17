@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import CategoryHub from "@/components/CategoryHub";
 import { photo } from "@/lib/gallery";
-import { FeatureList, IndustryLinks, ProofBand } from "@/components/ServiceBlocks";
+import { IndustryLinks, ProofBand } from "@/components/ServiceBlocks";
 import { industries } from "@/data/industries";
 
 export const metadata = { title: "Floor Coatings | High Performance Coatings" };
@@ -54,22 +54,6 @@ export default function Page() {
           ))}
         </div>
       </section>
-
-      <FeatureList
-        kicker="Systems we install"
-        title="Matched to the traffic, chemicals and cleaning each floor will see"
-        items={[
-          { label: "Full flake epoxy", detail: "Including hybrid and stone flake blends." },
-          { label: "Metallic epoxy", detail: "Custom color blends for basements, showrooms and lobbies." },
-          { label: "Quartz epoxy", detail: "Single and double broadcast for locker rooms and wet areas." },
-          { label: "Polyaspartic / polyurea", detail: "Fast-cure, one-day systems." },
-          { label: "Urethane cement", detail: "For brewery, food-processing and commercial kitchen floors." },
-          { label: "Solid color with nonslip", detail: "Shops, warehouses and production floors." },
-          { label: "Epoxy cove base", detail: "Seamless, sanitary floor-to-wall transitions." },
-          { label: "Polished concrete", detail: "Ground and polished up to 800 grit." },
-          { label: "Car wash wall & floor systems", detail: "Built for constant water and chemicals." },
-        ]}
-      />
 
       <ProofBand
         items={[

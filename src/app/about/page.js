@@ -6,7 +6,7 @@ export const metadata = { title: "About | High Performance Coatings" };
 const ITEMS = [
   { label: "Our Company", href: "/about/our-company", desc: "Coating floors, buildings, tanks and log homes since 1998." },
   { label: "Team & Leadership", href: "/about/team", desc: "The people behind the work." },
-  { label: "Certifications & Affiliations", href: "/about/certifications", desc: "EPA RRP, NACE, and our supplier partners." },
+  { label: "Certifications & Affiliations", href: "/about/certifications", desc: "EPA RRP, NACE, and the Buffalo Area Chamber." },
   { label: "Testimonials & Reviews", href: "/about/testimonials", desc: "What clients say about working with us." },
   { label: "Careers", href: "/about/careers", desc: "Join the HPC team." },
 ];
