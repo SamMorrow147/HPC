@@ -31,7 +31,7 @@ export default function Page() {
       heroImage={photo("f060")}
       service="floor-coatings"
     >
-      <section className="mx-auto max-w-7xl px-6 pt-14">
+      <section className="mx-auto max-w-7xl px-6 py-14">
         <div className="grid gap-6 md:grid-cols-2">
           {AUDIENCES.map((a) => (
             <Link

@@ -253,7 +253,7 @@ export default function Home() {
       </section>
 
       {/* Featured gallery strip */}
-      <section className="mx-auto max-w-7xl px-6 pb-16">
+      <section className="mx-auto max-w-7xl px-6 py-16">
         <div className="flex items-end justify-between">
           <h2 className="text-3xl font-extrabold text-brand-ink">Recent work</h2>
           <Link href="/projects" className="text-sm font-bold text-brand-green-dark hover:underline">
